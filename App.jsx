@@ -59,16 +59,6 @@ export default function App() {
     <div className={isHome ? 'has-hero' : ''}>
       <style>{CSS}</style>
 
-      <div className="utility">
-        <div className="wrap">
-          <div><span>{COMPANY.pec}</span><span>{COMPANY.iso}</span></div>
-          <div>
-            <span><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></span>
-            <span><a href={`tel:${COMPANY.phoneHref}`}>{COMPANY.phone}</a></span>
-          </div>
-        </div>
-      </div>
-
       <header className={`site-nav${stuck ? ' is-stuck' : ''}`}>
         <div className="wrap nav-inner">
           <a className="brand" href="#/" onClick={go('/')}>
