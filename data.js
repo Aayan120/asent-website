@@ -27,6 +27,266 @@ export const MARQUEE = [
   'State Bank of Pakistan',
 ];
 
+export const CLIENT_LOGOS = [
+  {
+    "name": "Karachi Chamber of Commerce",
+    "file": "01_Karachi_Chamber_of_Commerce.png"
+  },
+  {
+    "name": "Civil Hospital Karachi",
+    "file": "02_Civil_Hospital_Karachi.png"
+  },
+  {
+    "name": "University Seal",
+    "file": "03_University_Seal.png"
+  },
+  {
+    "name": "US Department of State",
+    "file": "04_US_Department_of_State.png"
+  },
+  {
+    "name": "PPL Pakistan Petroleum",
+    "file": "05_PPL_Pakistan_Petroleum.png"
+  },
+  {
+    "name": "PCB Pakistan Cricket Board",
+    "file": "06_PCB_Pakistan_Cricket_Board.png"
+  },
+  {
+    "name": "German Embassy Botschaft",
+    "file": "07_German_Embassy_Botschaft.png"
+  },
+  {
+    "name": "EGEHF",
+    "file": "08_EGEHF.png"
+  },
+  {
+    "name": "Allied Bank",
+    "file": "09_Allied_Bank.png"
+  },
+  {
+    "name": "HBL",
+    "file": "10_HBL.png"
+  },
+  {
+    "name": "Habib Bank",
+    "file": "11_Habib_Bank.png"
+  },
+  {
+    "name": "HSBC",
+    "file": "12_HSBC.png"
+  },
+  {
+    "name": "State Life Insurance",
+    "file": "13_State_Life_Insurance.png"
+  },
+  {
+    "name": "Federal Urdu University",
+    "file": "14_Federal_Urdu_University.png"
+  },
+  {
+    "name": "Bahria University",
+    "file": "15_Bahria_University.png"
+  },
+  {
+    "name": "USAID",
+    "file": "16_USAID.png"
+  },
+  {
+    "name": "Millennium Software",
+    "file": "17_Millennium_Software.png"
+  },
+  {
+    "name": "Mahvash Jahangir Siddiqui Foundation",
+    "file": "18_Mahvash_Jahangir_Siddiqui_Foundation.png"
+  },
+  {
+    "name": "The Hub School",
+    "file": "19_The_Hub_School.png"
+  },
+  {
+    "name": "Sukkur IBA",
+    "file": "20_Sukkur_IBA.png"
+  },
+  {
+    "name": "PARCO",
+    "file": "21_PARCO.png"
+  },
+  {
+    "name": "Bank of Khyber BOK",
+    "file": "22_Bank_of_Khyber_BOK.png"
+  },
+  {
+    "name": "Sanofi",
+    "file": "23_Sanofi.png"
+  },
+  {
+    "name": "Bank of Punjab BOP",
+    "file": "24_Bank_of_Punjab_BOP.png"
+  },
+  {
+    "name": "MCB Bank",
+    "file": "25_MCB_Bank.png"
+  },
+  {
+    "name": "Aga Khan Foundation",
+    "file": "26_Aga_Khan_Foundation.png"
+  },
+  {
+    "name": "EOBI",
+    "file": "27_EOBI.png"
+  },
+  {
+    "name": "The Citizens Foundation",
+    "file": "28_The_Citizens_Foundation.png"
+  },
+  {
+    "name": "Dawood Islamic Bank",
+    "file": "29_Dawood_Islamic_Bank.png"
+  },
+  {
+    "name": "National",
+    "file": "30_National.png"
+  },
+  {
+    "name": "State Bank of Pakistan",
+    "file": "31_State_Bank_of_Pakistan.png"
+  },
+  {
+    "name": "First Floor",
+    "file": "32_First_Floor.png"
+  },
+  {
+    "name": "NBP National Bank of Pakistan",
+    "file": "33_NBP_National_Bank_of_Pakistan.png"
+  },
+  {
+    "name": "Toyota Indus Motor",
+    "file": "34_Toyota_Indus_Motor.png"
+  },
+  {
+    "name": "Dollar",
+    "file": "35_Dollar.png"
+  },
+  {
+    "name": "TPL Properties",
+    "file": "36_TPL_Properties.png"
+  },
+  {
+    "name": "Oriental Trading",
+    "file": "37_Oriental_Trading.png"
+  },
+  {
+    "name": "HML",
+    "file": "38_HML.png"
+  },
+  {
+    "name": "Arabian Sea Country Club",
+    "file": "39_Arabian_Sea_Country_Club.png"
+  },
+  {
+    "name": "KE Karachi Electric",
+    "file": "40_KE_Karachi_Electric.png"
+  },
+  {
+    "name": "Sprint",
+    "file": "41_Sprint.png"
+  },
+  {
+    "name": "Pfizer",
+    "file": "42_Pfizer.png"
+  },
+  {
+    "name": "Primaco",
+    "file": "43_Primaco.png"
+  },
+  {
+    "name": "CAA Civil Aviation Authority",
+    "file": "44_CAA_Civil_Aviation_Authority.png"
+  },
+  {
+    "name": "Liaquat National Hospital",
+    "file": "45_Liaquat_National_Hospital.png"
+  },
+  {
+    "name": "Pakistan Textile City",
+    "file": "46_Pakistan_Textile_City.png"
+  },
+  {
+    "name": "LU",
+    "file": "47_LU.png"
+  },
+  {
+    "name": "KSEW Karachi Shipyard",
+    "file": "48_KSEW_Karachi_Shipyard.png"
+  },
+  {
+    "name": "Hashwani Hotels",
+    "file": "49_Hashwani_Hotels.png"
+  },
+  {
+    "name": "JEPZAL",
+    "file": "50_JEPZAL.png"
+  },
+  {
+    "name": "SIUT Pakistan",
+    "file": "51_SIUT_Pakistan.png"
+  },
+  {
+    "name": "Partner Logo Abstract",
+    "file": "52_Partner_Logo_Abstract.png"
+  },
+  {
+    "name": "Naya Nazimabad",
+    "file": "53_Naya_Nazimabad.png"
+  },
+  {
+    "name": "SilkBank",
+    "file": "54_SilkBank.png"
+  },
+  {
+    "name": "JS Bank",
+    "file": "55_JS_Bank.png"
+  },
+  {
+    "name": "Javedan Corporation",
+    "file": "56_Javedan_Corporation.png"
+  },
+  {
+    "name": "P and G",
+    "file": "57_P_and_G.png"
+  },
+  {
+    "name": "MTJ Tariq Jamil",
+    "file": "58_MTJ_Tariq_Jamil.png"
+  },
+  {
+    "name": "Aga Khan Health Services",
+    "file": "59_Aga_Khan_Health_Services.png"
+  },
+  {
+    "name": "The First MicroFinanceBank",
+    "file": "60_The_First_MicroFinanceBank.png"
+  },
+  {
+    "name": "Medtronic",
+    "file": "61_Medtronic.png"
+  },
+  {
+    "name": "Garrys dnata",
+    "file": "62_Garrys_dnata.png"
+  },
+  {
+    "name": "Imtiaz",
+    "file": "63_Imtiaz.png"
+  },
+  {
+    "name": "Serena Hotels",
+    "file": "64_Serena_Hotels.png"
+  }
+];
+
+
 export const SERVICES = [
   ['01 / Structures', 'High-rise towers & multi-storey buildings', 'Piling, substructure, superstructure and podium works for towers up to 32 floors, executed with our own batching plants and pumps.'],
   ['02 / Buildings', 'Apartments, hospitals, campuses', 'Residential apartments, commercial complexes, hospitals, multipurpose halls, industrial units, educational institutes and sports complexes.'],
@@ -99,26 +359,26 @@ export const PROJECTS = [
   { img: 'menzies-ras', title: 'Import Facility, Terminal 3', status: 'Under construction', live: true, cats: ['progress', 'commercial', 'infrastructure'], meta: 'Menzies RAS · Karachi Airport\nConsultant: Consult Tech', scope: 'Civil, MEP, HVAC and allied works for a cargo import facility and office complex at Karachi Airport.' },
   { img: 'arkadian', title: 'The Arkadian — Tower C & podium', status: 'Under construction', live: true, cats: ['progress', 'residential'], meta: 'Creek Developers · Karachi\nConsultant: Loya Associates', scope: 'Structural work of podium phase 1, segments 1–5, and Tower C up to podium level, with civil, MEP and piling works.' },
   { img: 'club-house', title: 'Naya Nazimabad Club House', status: 'Under construction', live: true, cats: ['progress', 'hospitality'], meta: 'Javedan Corporation · Consultant: Arcop\n350,000 sq ft', scope: 'Cricket stadium, squash and tennis courts, swimming pool, restaurants, banquet hall and external development — civil, infrastructure, MEP, HVAC and interior works.' },
-  { img: 'zaver-pc', title: 'Zaver Pearl Continental Hotel', status: 'Completed 2005', cats: ['completed', 'hospitality'], meta: 'Hashwani Hotels · Gwadar\nConsultant: Arcop Associates · 310,000 sq ft', scope: 'Piling, civil, electrical, plumbing, HVAC and interior decoration works, with internal and external beautification, for a five-star hotel on the Gwadar coast.' },
-  { img: 'gilgit-medical', title: 'Gilgit Medical Center', status: 'Completed 2024', cats: ['completed', 'healthcare'], meta: 'Aga Khan Health Services · Gilgit-Baltistan\nConsultant: Arcop · 110,000 sq ft', scope: 'OPD, emergency, CT scan, CCU, ICU and isolation blocks, wards, cafeteria and landscaping — civil, architecture, MEP, HVAC and medical gas works.' },
-  { img: 'centerpoint', title: 'Centerpoint', status: 'Completed 2013', cats: ['completed', 'commercial'], meta: 'TPL Properties · Karachi\nConsultant: Arcop · 28 storeys · 400,000 sq ft', scope: 'Civil and interior works on a 385 ft grade-A landmark with glass curtain wall, 80 ft atrium, nine parking floors and independent power generation.' },
+  { img: 'zaver-pc', title: 'Zaver Pearl Continental Hotel', status: 'Completed 2005', cats: ['completed', 'hospitality'], meta: 'Hashwani Hotels · Gwadar\nConsultant: Arcop Associates · 310,000 sq ft', scope: 'Piling, civil, electrical, plumbing, HVAC and interior decoration works, with internal and external beautification, for a five-star hotel on the Gwadar coast.', gallery: ['./images/projects/PC Hotel Gwadar/1.jpg', './images/projects/PC Hotel Gwadar/2.jpg', './images/projects/PC Hotel Gwadar/3.jpg', './images/projects/PC Hotel Gwadar/4.JPG'] },
+  { img: 'gilgit-medical', title: 'Gilgit Medical Center', status: 'Completed 2024', cats: ['completed', 'healthcare'], meta: 'Aga Khan Health Services · Gilgit-Baltistan\nConsultant: Arcop · 110,000 sq ft', scope: 'OPD, emergency, CT scan, CCU, ICU and isolation blocks, wards, cafeteria and landscaping — civil, architecture, MEP, HVAC and medical gas works.', gallery: ['./images/projects/AgaKhanGilgit/1.jpeg', './images/projects/AgaKhanGilgit/2.jpeg', './images/projects/AgaKhanGilgit/3.jpeg', './images/projects/AgaKhanGilgit/4.jpeg'] },
+  { img: 'centerpoint', title: 'Centerpoint', status: 'Completed 2013', cats: ['completed', 'commercial'], meta: 'TPL Properties · Karachi\nConsultant: Arcop · 28 storeys · 400,000 sq ft', scope: 'Civil and interior works on a 385 ft grade-A landmark with glass curtain wall, 80 ft atrium, nine parking floors and independent power generation.', gallery: ['./images/projects/TPL Centrepoint/1.jpg', './images/projects/TPL Centrepoint/2.jpg', './images/projects/TPL Centrepoint/3.jpg', './images/projects/TPL Centrepoint/5.jpg'] },
   { img: 'exec-dining', title: 'Executive Dining, TPL Centrepoint', status: 'Completed 2019', cats: ['completed', 'commercial'], meta: 'Trakker (Pvt) Ltd · 25th floor, Karachi\nConsultant: Najmi Bilgrami Collaborative', scope: 'Civil, interior decoration and plumbing works for an executive dining floor at the top of the tower.' },
-  { img: 'js-center', title: 'JS Center', status: 'Completed 2019', cats: ['completed', 'commercial', 'banking'], meta: 'JS Bank Group · Karachi\nConsultant: Najmi Bilgrami · 49,980 sq ft', scope: 'Entrance lobby and multiple office floors — civil, MEP, HVAC and interior decoration for a high-specification corporate workplace.' },
+  { img: 'js-center', title: 'JS Center', status: 'Completed 2019', cats: ['completed', 'commercial', 'banking'], meta: 'JS Bank Group · Karachi\nConsultant: Najmi Bilgrami · 49,980 sq ft', scope: 'Entrance lobby and multiple office floors — civil, MEP, HVAC and interior decoration for a high-specification corporate workplace.', gallery: ['./images/projects/JS Center/1.jpg', './images/projects/JS Center/2.jpg', './images/projects/JS Center/3.jpg', './images/projects/JS Center/4.JPG'] },
   { img: 'parco', title: 'PARCO Housing Complex', status: 'Completed 2007', cats: ['completed', 'residential'], meta: 'PARCO · Muzaffargarh\nConsultant: NESPAK / PARCO · 70 acres', scope: 'MPT and non-MPT residences, multi-storey buildings, school, auditorium, mechanical shades, roads, landscaping and infrastructure. Associated with PARCO from 1998 to 2010.' },
   { img: 'mjsf-hospital', title: 'MJSF Hospital, Sehwan', status: 'Completed 2019', cats: ['completed', 'healthcare'], meta: 'Mahvash & Jahangir Siddiqui Foundation · Sindh\nConsultant: Shahab Ghani Associates · 58 acres', scope: 'Three phases of hospital construction with infrastructure, external development, road works, sewerage system and landscaping.' },
-  { img: 'liaquat-hospital', title: 'Liaquat National Hospital', status: 'Completed 2017', cats: ['completed', 'healthcare'], meta: 'Liaquat National Hospital · Karachi\nConsultant: Ahed Associates · 250,000 sq ft', scope: 'Main entrance gate, new OPD, blood collection centres, central stores, link bridges, masjid, retaining walls, cafeteria, roads and landscaping on a live campus.' },
+  { img: 'liaquat-hospital', title: 'Liaquat National Hospital', status: 'Completed 2017', cats: ['completed', 'healthcare'], meta: 'Liaquat National Hospital · Karachi\nConsultant: Ahed Associates · 250,000 sq ft', scope: 'Main entrance gate, new OPD, blood collection centres, central stores, link bridges, masjid, retaining walls, cafeteria, roads and landscaping on a live campus.', gallery: ['./images/projects/Liaquat National Hospital - Multiple Projects/1.jpg', './images/projects/Liaquat National Hospital - Multiple Projects/2.jpg', './images/projects/Liaquat National Hospital - Multiple Projects/3.jpg', './images/projects/Liaquat National Hospital - Multiple Projects/4.jpg'] },
   { img: 'serena-quetta', title: 'Serena Hotel Quetta — renovation', status: 'Completed', cats: ['completed', 'hospitality'], meta: 'Tourism Promotion Services Pakistan · Quetta\n18-month programme', scope: 'Civil, MEP and interior decoration works across guest rooms, common areas and essential facilities of an operating five-star hotel.' },
-  { img: 'sanofi', title: 'Sanofi Aventis Pharma', status: 'Completed 2006', cats: ['completed', 'industrial'], meta: 'Sanofi Aventis (Pvt) Ltd · Korangi, Karachi\nConsultant: Ahed Associates · 74,000 sq ft', scope: 'Administration block, auditorium, pool and external development — civil, plumbing, electrical, HVAC and interior decoration works.' },
-  { img: 'first-microfinance', title: 'The First MicroFinance Bank', status: 'Completed 2022', cats: ['completed', 'banking'], meta: 'Aga Khan Agency for Habitat / FMFB · Gilgit-Baltistan\nConsultant: Arcop', scope: 'Civil, MEP and HVAC works for a regional bank building in stone and timber screens, with full interior fit-out.' },
-  { img: 'allied-bank', title: 'Allied Bank Regional HQ, Kot Lakhpat', status: 'Completed 2021', cats: ['completed', 'banking', 'commercial'], meta: 'Allied Bank Limited · Lahore\nConsultant: Habib Fida Ali · 105,000 sq ft', scope: 'Grey structure, plumbing, fire fighting and interior works, including a specialised vault, for the bank\u2019s regional headquarters.' },
-  { img: 'iba-hostel', title: 'IBA Visiting Faculty Hostel', status: 'Completed 2013', cats: ['completed', 'education'], meta: 'IBA Karachi · Consultant: Najmi Bilgrami\n50,000 sq ft', scope: 'Civil, mechanical, electrical, plumbing, HVAC and interior works for residences housing visiting faculty from outside Karachi and overseas.' },
-  { img: 'sukkur-iba', title: 'Sukkur IBA — various buildings', status: 'Completed 2011', cats: ['completed', 'education'], meta: 'Sukkur Institute of Business Administration\nConsultant: Habib Fida Ali', scope: 'Boys\u2019 hostels, staff residences, water works, model schools and dining block — civil, MEP, interior and infrastructure works.' },
+  { img: 'sanofi', title: 'Sanofi Aventis Pharma', status: 'Completed 2006', cats: ['completed', 'industrial'], meta: 'Sanofi Aventis (Pvt) Ltd · Korangi, Karachi\nConsultant: Ahed Associates · 74,000 sq ft', scope: 'Administration block, auditorium, pool and external development — civil, plumbing, electrical, HVAC and interior decoration works.', gallery: ['./images/projects/Sanofi Aventis/SA1.jpg', './images/projects/Sanofi Aventis/SA2.jpg', './images/projects/Sanofi Aventis/SA3.jpg', './images/projects/Sanofi Aventis/SA4.jpg'] },
+  { img: 'first-microfinance', title: 'The First MicroFinance Bank', status: 'Completed 2022', cats: ['completed', 'banking'], meta: 'Aga Khan Agency for Habitat / FMFB · Gilgit-Baltistan\nConsultant: Arcop', scope: 'Civil, MEP and HVAC works for a regional bank building in stone and timber screens, with full interior fit-out.', gallery: ['./images/projects/HBL MFB/1.jpg', './images/projects/HBL MFB/2.jpg', './images/projects/HBL MFB/3.jpg', './images/projects/HBL MFB/4.jpg'] },
+  { img: 'allied-bank', title: 'Allied Bank Regional HQ, Kot Lakhpat', status: 'Completed 2021', cats: ['completed', 'banking', 'commercial'], meta: 'Allied Bank Limited · Lahore\nConsultant: Habib Fida Ali · 105,000 sq ft', scope: 'Grey structure, plumbing, fire fighting and interior works, including a specialised vault, for the bank\u2019s regional headquarters.', gallery: ['./images/projects/ABL Multiple Projects/Kot Lakhpat Lahore/1.jpg', './images/projects/ABL Multiple Projects/Kot Lakhpat Lahore/2.jpg', './images/projects/ABL Multiple Projects/Kot Lakhpat Lahore/3.jpg', './images/projects/ABL Multiple Projects/Kot Lakhpat Lahore/4.jpg'] },
+  { img: 'iba-hostel', title: 'IBA Visiting Faculty Hostel', status: 'Completed 2013', cats: ['completed', 'education'], meta: 'IBA Karachi · Consultant: Najmi Bilgrami\n50,000 sq ft', scope: 'Civil, mechanical, electrical, plumbing, HVAC and interior works for residences housing visiting faculty from outside Karachi and overseas.', gallery: ['./images/projects/IBA  Multiple Projects/Visiting Faculty Hostel/1.jpg', './images/projects/IBA  Multiple Projects/Visiting Faculty Hostel/2.jpg', './images/projects/IBA  Multiple Projects/Visiting Faculty Hostel/3.jpg', './images/projects/IBA  Multiple Projects/Visiting Faculty Hostel/4.jpg'] },
+  { img: 'sukkur-iba', title: 'Sukkur IBA — various buildings', status: 'Completed 2011', cats: ['completed', 'education'], meta: 'Sukkur Institute of Business Administration\nConsultant: Habib Fida Ali', scope: 'Boys\u2019 hostels, staff residences, water works, model schools and dining block — civil, MEP, interior and infrastructure works.', gallery: ['./images/projects/IBA  Multiple Projects/Sukkur IBA/1.jpg', './images/projects/IBA  Multiple Projects/Sukkur IBA/2.jpg', './images/projects/IBA  Multiple Projects/Sukkur IBA/3.jpg', './images/projects/IBA  Multiple Projects/Sukkur IBA/4.jpg'] },
   { img: 'iba-admin', title: 'Administration Block, IBA Karachi', status: 'Completed 2015', cats: ['completed', 'education'], meta: 'IBA Karachi · Consultant: NESPAK / ICON\n44,000 sq ft', scope: 'Civil, MEP and HVAC works for faculty offices, a faculty lounge, boardroom and meeting rooms with central air conditioning.' },
   { img: 'hub-school', title: 'The Hub School', status: 'Completed 2017', cats: ['completed', 'education'], meta: 'Ahmed E.H. Jaffer Foundation · Hub, Balochistan\nConsultant: AIAK Associates · 240 acres', scope: 'Boys\u2019 hostels, admin and academic blocks, labs, library and business study block, masjid, senior and junior houses, dining area, external development and roads.' },
-  { img: 'usaid', title: 'Faculty of Education Complexes', status: 'Completed 2017', cats: ['completed', 'education'], meta: 'USAID · Consultant: EA Consulting\nFive universities · 275,000 sq ft', scope: 'Simultaneous construction at Islamia University Bahawalpur, Lasbela University Uthal, Gomal University D.I. Khan, Bahauddin Zakariya University Multan and Punjab University Lahore — with zero incidents.' },
-  { img: 'js-auditorium', title: 'JS Auditorium, IBA City Campus', status: 'Completed 2014', cats: ['completed', 'education'], meta: 'Mahvash & Jahangir Siddiqui Foundation · Karachi\nConsultant: Habib Fida Ali · 35,000 sq ft', scope: 'A 400-seat auditorium with banking facilities, changing rooms and full accessibility — civil, MEP, HVAC and fire fighting works.' },
+  { img: 'usaid', title: 'Faculty of Education Complexes', status: 'Completed 2017', cats: ['completed', 'education'], meta: 'USAID · Consultant: EA Consulting\nFive universities · 275,000 sq ft', scope: 'Simultaneous construction at Islamia University Bahawalpur, Lasbela University Uthal, Gomal University D.I. Khan, Bahauddin Zakariya University Multan and Punjab University Lahore — with zero incidents.', gallery: ['./images/projects/USAID/1.jpg', './images/projects/USAID/2.jpg', './images/projects/USAID/3.jpg', './images/projects/USAID/4.jpg'] },
+  { img: 'js-auditorium', title: 'JS Auditorium, IBA City Campus', status: 'Completed 2014', cats: ['completed', 'education'], meta: 'Mahvash & Jahangir Siddiqui Foundation · Karachi\nConsultant: Habib Fida Ali · 35,000 sq ft', scope: 'A 400-seat auditorium with banking facilities, changing rooms and full accessibility — civil, MEP, HVAC and fire fighting works.', gallery: ['./images/projects/IBA  Multiple Projects/Auditorium/1audi.jpg', './images/projects/IBA  Multiple Projects/Auditorium/2audi.jpg', './images/projects/IBA  Multiple Projects/Auditorium/3audi.jpg', './images/projects/IBA  Multiple Projects/Auditorium/4audi.jpg'] },
   { img: 'al-azhar', title: 'Al-Azhar Garden', status: 'Completed 1998', cats: ['completed', 'residential'], meta: 'Pioneer Multipurpose Cooperative Society · Karachi\nFacilitated by Aga Khan Planning & Building Services', scope: 'Low-income housing organised around plazas, gardens and courtyards, with shading devices, natural ventilation and water recycling — civil and MEP works.' },
-  { img: 'medtronic', title: 'Medtronic Head Office', status: 'Completed 2019', cats: ['completed', 'commercial'], meta: 'Medtronic (Pvt) Ltd · Ocean Tower, Karachi\nConsultant: H3 Architects', scope: 'Civil, MEP, HVAC and interior decoration works for a corporate head office — reception, open workspace, meeting rooms and pantry.' },
+  { img: 'medtronic', title: 'Medtronic Head Office', status: 'Completed 2019', cats: ['completed', 'commercial'], meta: 'Medtronic (Pvt) Ltd · Ocean Tower, Karachi\nConsultant: H3 Architects', scope: 'Civil, MEP, HVAC and interior decoration works for a corporate head office — reception, open workspace, meeting rooms and pantry.', gallery: ['./images/projects/Medtronic - Ocean Tower/1M.jpg', './images/projects/Medtronic - Ocean Tower/2M.jpg', './images/projects/Medtronic - Ocean Tower/3M.jpg', './images/projects/Medtronic - Ocean Tower/4M.jpg'] },
   { img: 'karachi-shipyard', title: 'KSEW Accommodation-cum-Office Building', status: 'Completed 2011', cats: ['completed', 'commercial', 'industrial'], meta: 'Karachi Shipyard & Engineering Works\nConsultant: NESPAK · Ground + 8', scope: 'Piling, architectural works and interior decoration for a multi-storey building completed in 18 months despite strikes and flooding, with 187 additional working days.' },
 ];
 
@@ -221,9 +481,9 @@ export const QUOTES = [
 ];
 
 export const LEADERS = [
-  ['Founder', 'Shafi Ahmed (Late)', 'Set the company\u2019s terms: solve the hard problems, do things differently, and find the better way. He held that the most rewarding part of the job was watching a team\u2019s combined capability exceed the sum of its parts — and that an ethical approach is the core value everything else rests on.'],
-  ['Partner', 'Jamil Shafi', 'Carries the founder\u2019s position on ethics into daily practice: consistent conduct with employees, customers, suppliers and the public, and a business model that integrates the company\u2019s core disciplines to deliver better project solutions in its chosen markets.'],
-  ['Partner', 'Tahir Shafi', 'Focused on long-lasting client relationships, where every client matters regardless of contract size. Relationships built on trust and integrity, and delivery measured by whether the client would hire the team again.'],
+  ['Founder', 'Shafi Ahmed (Late)', 'Set the company\u2019s terms: solve the hard problems, do things differently, and find the better way. He held that the most rewarding part of the job was watching a team\u2019s combined capability exceed the sum of its parts — and that an ethical approach is the core value everything else rests on.', './images/ShafiHussain.jpg'],
+  ['CEO', 'Jamil Shafi', 'Carries the founder\u2019s position on ethics into daily practice: consistent conduct with employees, customers, suppliers and the public, and a business model that integrates the company\u2019s core disciplines to deliver better project solutions in its chosen markets.', './images/JamilShafi.jpg'],
+  ['COO', 'Tahir Shafi', 'Focused on long-lasting client relationships, where every client matters regardless of contract size. Relationships built on trust and integrity, and delivery measured by whether the client would hire the team again.', './images/TahirShafi.jpg'],
 ];
 
 export const ORG = [
@@ -231,7 +491,7 @@ export const ORG = [
   ['Human Resource', ['HR Executive', 'HR Assistant']],
   ['Procurement & Logistics', ['Procurement Manager', 'Procurement Assistant', 'Purchase Officer', 'Logistics Assistant']],
   ['Technical', ['Project Co-ordinator', 'Planning Engineer', 'Jr. Planning Engineer', 'Co-ordination Engineer', 'Sr. Quantity Surveyor', 'Quantity Surveyor']],
-  ['Project team', ['Project Manager / Site In Charge', 'Project Engineer', 'Site Supervisor', 'Surveyor · Foreman', 'Store Keeper', 'HSE Department', 'Quality Assurance Department']],
+  ['Project team', ['General Project Manager', 'Project Manager / Site In Charge', 'Project Engineer', 'Site Supervisor', 'Surveyor · Foreman', 'Store Keeper', 'HSE Department', 'Quality Assurance Department']],
 ];
 
 export const HSE = [

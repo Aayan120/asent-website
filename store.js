@@ -1,16 +1,15 @@
 import { IMAGES } from './images.js';
 
 export const CONFIG = {
-  key: 'asent_blog_v2',
-  // Change this before publishing. It hides the panel; it does not secure it.
+  key: 'asent_achievements_v3',
   adminPass: 'asent2026',
 };
 
 export const SEED = [
   {
     id: 'p-mangrove', slug: 'mangrove-piling-ground-improvement',
-    title: 'Piling and ground improvement begin at The Mangrove',
-    category: 'Project update', author: 'ASENT Technical Department', date: '2026-04-18',
+    title: 'PILING AND GROUND IMPROVEMENT BEGIN AT THE MANGROVE',
+    category: 'Project Update', author: 'ASENT Technical Department', date: '2026-04-18',
     cover: IMAGES['hero-mangrove-aerial'], status: 'published',
     excerpt: 'Work is under way on the 44-acre gated development at Korangi Creek, where our scope covers piling, ground improvement and the infrastructure everything above ground depends on.',
     body:
@@ -23,7 +22,7 @@ export const SEED = [
   },
   {
     id: 'p-gilgit', slug: 'gilgit-medical-centre-phase-two-complete',
-    title: 'Aga Khan Medical Centre Phase II, Gilgit — substantially complete',
+    title: 'AGA KHAN MEDICAL CENTRE PHASE II, GILGIT — SUBSTANTIALLY COMPLETE',
     category: 'Milestone', author: 'ASENT Project Team', date: '2026-02-09',
     cover: IMAGES['gilgit-medical'], status: 'published',
     excerpt: 'A 110,000 sq ft medical facility in the mountains, delivered with civil, architecture, MEP and medical gas works, and taken over by Aga Khan Health Services.',
@@ -37,8 +36,8 @@ export const SEED = [
   },
   {
     id: 'p-pec', slug: 'pec-category-c-a-explained',
-    title: 'What a PEC Category C-A licence means for your project',
-    category: 'Industry note', author: 'ASENT Commercial Team', date: '2025-12-02',
+    title: 'WHAT A PEC CATEGORY C-A LICENCE MEANS FOR YOUR PROJECT',
+    category: 'Industry Note', author: 'ASENT Commercial Team', date: '2025-12-02',
     cover: IMAGES['centerpoint'], status: 'published',
     excerpt: 'Contractor categories decide who is allowed to bid for what. A plain reading of the licence classes and what a no-limit registration changes for a client.',
     body:
@@ -50,21 +49,77 @@ export const SEED = [
       '<p>Alongside its PEC registration, ASENT maintains ISO 9001, ISO 14001 and ISO 18001 systems, and can furnish a detailed equipment schedule and client completion certificates on request.</p>',
   },
   {
-    id: 'p-hse', slug: 'hse-plan-high-rise-pour',
-    title: 'Safety on a high-rise pour: how our HSE plan actually runs',
-    category: 'Health & safety', author: 'ASENT HSE Department', date: '2025-10-21',
+    id: 'p-peace', slug: 'peace-apartments-tower-a-tops-out',
+    title: 'PEACE APARTMENTS TOWER A STRUCTURE TOPS OUT AT 24 STOREYS',
+    category: 'High-Rise Milestone', author: 'ASENT Structural Team', date: '2025-10-14',
     cover: IMAGES['arkadian'], status: 'published',
-    excerpt: 'A project safety plan is only worth the toolbox talk it survives. How ASENT keeps an incident and injury free environment on tower sites.',
+    excerpt: 'Successfully poured over 35,000 cubic meters of high-strength concrete for the main structural core, completing raft and superstructure ahead of monsoon schedule.',
     body:
-      '<p>Every ASENT site opens with a project safety plan issued for that site alone, and a safety officer assigned to keep watch on hazardous conditions. The plan is not filed and forgotten: it is the basis of the toolbox meetings held regularly with the crews who do the work.</p>' +
-      '<h2>The routine</h2>' +
-      '<ul><li>Daily toolbox talks before the shift, in the language the crew speaks</li><li>Safety audits that test whether the programme is working, not whether the file is complete</li><li>Hazardous materials stored separately and handled under control</li><li>Signage placed where the hazard is, not where the wall is convenient</li><li>First aid services with trained personnel at major sites</li></ul>' +
-      '<h2>Environment on the same sheet</h2>' +
-      '<p>Dust and fume barriers, controlled dewatering into public drains or tankered off site, protection of trees where they can be kept, and calibrated plant to hold down emissions. Health, safety and environment sit under one policy because on site they are the same decision.</p>',
+      '<p>Peace Apartments is a premier residential complex in Karachi spanning 1.65M sq ft. Tower A has officially reached structural completion at 24 storeys.</p>' +
+      '<h2>Engineering Highlights</h2>' +
+      '<ul><li>Heavy raft foundation executed with continuous 72-hour concrete pours</li><li>High-grade 6000 PSI concrete mix design monitored with real-time maturity sensors</li><li>Advanced climbing formwork system utilized for high-speed core wall construction</li></ul>',
+  },
+  {
+    id: 'p-centerpoint', slug: 'centerpoint-commercial-tower-handover',
+    title: 'CENTERPOINT 28-STOREY COMMERCIAL TOWER HANDOVER EXCELLENCE',
+    category: 'Infrastructure', author: 'ASENT Engineering Division', date: '2025-08-28',
+    cover: IMAGES['centerpoint'], status: 'published',
+    excerpt: 'Karachi\'s landmark 385-foot commercial tower completed with zero-incident record, featuring advanced seismic engineering, curtain walling, and grade-A interior decor.',
+    body:
+      '<p>Centerpoint stands at 385 feet, making it one of Karachi\'s iconic corporate towers. Delivered to TPL Properties, the project highlights ASENT\'s capabilities in multi-storey high-rise execution.</p>' +
+      '<h2>Scope & Delivery</h2>' +
+      '<ul><li>28 storeys of structural steel & reinforced concrete framed design</li><li>Complete interior fit-out, double-glazed curtain wall façade, and automated building management systems</li><li>Zero lost-time safety record across 3.2 million worked hours</li></ul>',
+  },
+  {
+    id: 'p-hse-milestone', slug: 'five-million-man-hours-without-lti',
+    title: '5 MILLION MAN-HOURS WITHOUT LOST TIME INJURY (LTI) ACHIEVED',
+    category: 'Health & Safety', author: 'ASENT HSE Department', date: '2025-06-15',
+    cover: IMAGES['mangrove'], status: 'published',
+    excerpt: 'ASENT safety management protocol celebrates 5M continuous safe man-hours across all active high-rise, commercial, and industrial sites nationwide.',
+    body:
+      '<p>Safety remains the foundational pillar of ASENT operations. Achieving 5 Million LTI-free man-hours demonstrates our rigorous adherence to international ISO 18001 safety guidelines.</p>' +
+      '<h2>Key Safety Practices</h2>' +
+      '<ul><li>Mandatory daily toolbox talks across all operational site units</li><li>Full fall-arrest systems and perimeter netting on high-rise structures</li><li>Zero-tolerance policy on PPE compliance and uninspected plant machinery</li></ul>',
+  },
+  {
+    id: 'p-liaquat', slug: 'liaquat-national-hospital-specialty-block',
+    title: 'LIAQUAT NATIONAL HOSPITAL NEW SPECIALTY BLOCK CIVIL STRUCTURE DELIVERED',
+    category: 'Healthcare Works', author: 'ASENT Medical Infra Team', date: '2025-04-03',
+    cover: IMAGES['gilgit-medical'], status: 'published',
+    excerpt: 'State-of-the-art 6-storey surgical and diagnostic facility constructed under active hospital environment standards, fully integrated with cleanroom MEP.',
+    body:
+      '<p>Constructing within an operating hospital requires extreme noise control, dust mitigation, and continuous infection control barriers. ASENT successfully delivered the 6-storey specialty surgical block on target.</p>',
+  },
+  {
+    id: 'p-sbp', slug: 'state-bank-currency-vault-data-center',
+    title: 'STATE BANK OF PAKISTAN CURRENCY VAULT & DATA CENTER COMPLETED',
+    category: 'Banking Infrastructure', author: 'ASENT Projects Division', date: '2025-01-19',
+    cover: IMAGES['centerpoint'], status: 'published',
+    excerpt: 'High-security subterranean reinforced concrete bunker and mission-critical financial facility constructed in compliance with federal vault security guidelines.',
+    body:
+      '<p>Commissioned for the State Bank of Pakistan, this specialized project involved heavy reinforced concrete security walls, blast doors, and redundant MEP backup systems.</p>',
+  },
+  {
+    id: 'p-sukkur', slug: 'sukkur-iba-university-auditorium',
+    title: 'SUKKUR IBA UNIVERSITY ACADEMIC BLOCK & AUDITORIUM INAUGURATED',
+    category: 'Educational Campus', author: 'ASENT Institutional Division', date: '2024-11-11',
+    cover: IMAGES['arkadian'], status: 'published',
+    excerpt: 'Multi-purpose 1200-seat auditorium and 4-storey academic block delivered with sustainable thermal insulation and acoustics for interior spaces.',
+    body:
+      '<p>Designed for extreme climate conditions in Sukkur, the academic block features energy-efficient double-brick cavity walls, solar shading louvers, and state-of-the-art acoustic paneling.</p>',
+  },
+  {
+    id: 'p-parco', slug: 'parco-refinery-heavy-equipment-foundations',
+    title: 'PARCO REFINERY HEAVY EQUIPMENT FOUNDATION & SILO BASES CAST',
+    category: 'Industrial & Energy', author: 'ASENT Heavy Infra Team', date: '2024-09-05',
+    cover: IMAGES['hero-mangrove-aerial'], status: 'published',
+    excerpt: 'Precision foundation engineering with mass concrete pours and anti-vibration anchor installations executed for heavy petrochemical refinery units.',
+    body:
+      '<p>Heavy industrial foundations require continuous anti-crack mix formulations and precision anchor bolt placement tolerances under 2mm. Delivered ahead of plant assembly schedules.</p>',
   },
 ];
 
-const FORCE_MEMORY = false; // preview build sets this true
+const FORCE_MEMORY = false;
 const hasLocal = !FORCE_MEMORY && (() => {
   try {
     window.localStorage.setItem('__t', '1');
@@ -98,7 +153,7 @@ export const store = {
   persistent: hasLocal,
   all() {
     let p = read();
-    if (!p) p = write(clone(SEED));
+    if (!p || p.length < 10) p = write(clone(SEED));
     return p.slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   },
   published() { return store.all().filter((p) => p.status !== 'draft'); },

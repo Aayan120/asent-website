@@ -1,4 +1,4 @@
-﻿export const CSS = `/* =========================================================
+export const CSS = `/* =========================================================
    ASENT — Builders · Contractors · Interior Decorators
    Design tokens sampled from the company profile:
    navy #17193F, rust marker #B8462A, blueprint white #F1F3F8
@@ -197,7 +197,7 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
   background:var(--ink);color:#fff;overflow:hidden;padding-top:120px;
 }
 .hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;opacity:.62;transform:scale(1.06);animation:heroDrift 18s var(--ease) forwards}
+.hero-media img, .hero-media video{width:100%;height:100%;object-fit:cover;opacity:.62;transform:scale(1.06);animation:heroDrift 18s var(--ease) forwards}
 @keyframes heroDrift{to{transform:scale(1)}}
 .hero-media::after{
   content:"";position:absolute;inset:0;
@@ -237,14 +237,17 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
 .stats .stat:first-child{padding-left:0}
 
 /* ---------- marquee (clients) ---------- */
-.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--paper);padding-block:20px}
-.marquee-track{display:flex;gap:44px;width:max-content;animation:slide 42s linear infinite}
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--paper-2);padding-block:22px}
+.marquee-track{display:flex;align-items:center;gap:48px;width:max-content;animation:slide 60s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
-.marquee span{
-  font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);
-  white-space:nowrap;display:flex;align-items:center;gap:44px;
+.marquee-item{display:flex;align-items:center;gap:48px;white-space:nowrap}
+.marquee-item img{
+  height:42px;max-width:150px;object-fit:contain;
+  filter:grayscale(100%) opacity(0.8);
+  transition:filter .3s var(--ease), opacity .3s var(--ease), transform .3s var(--ease);
 }
-.marquee span::after{content:"";width:5px;height:5px;background:var(--rust);flex:none}
+.marquee-item img:hover{filter:grayscale(0%) opacity(1);transform:scale(1.08)}
+.marquee-item::after{content:"";width:6px;height:6px;background:var(--rust);flex:none;border-radius:1px}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* ---------- intro / split ---------- */
@@ -460,9 +463,10 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 .footer-brand p{font-size:.9rem;max-width:34ch}
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,.1);padding-block:20px;
-  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;
   font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
 }
+.footer-bottom span:last-child{position:absolute;right:0}
 .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .badge{
   border:1px solid rgba(255,255,255,.18);padding:6px 10px;
@@ -478,7 +482,8 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 .org-col li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:1px;background:var(--rust)}
 
 .leaders{display:grid;gap:2px;grid-template-columns:repeat(3,1fr);background:var(--line-dark)}
-.leader{background:var(--navy-2);padding:clamp(24px,3vw,34px)}
+.leader{background:var(--navy-2);padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;align-items:flex-start}
+.leader-photo{width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:18px;border:3px solid var(--rust-2);filter:grayscale(20%)}
 .leader .role{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rust-2);margin-bottom:14px}
 .leader h3{margin-bottom:.4em}
 .leader p{font-size:.92rem;color:#CFD3E6}
@@ -502,6 +507,9 @@ td .yr{font-family:var(--mono);color:var(--rust)}
   .stat:nth-child(3){border-left:0}
   .stat{border-top:1px solid rgba(255,255,255,.1)}
   .stat:nth-child(-n+2){border-top:0}
+  /* Fix 4: Footer bottom — prevent absolute overlap */
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+  .footer-bottom span:last-child{position:static}
 }
 
 @media (max-width:860px){
@@ -520,6 +528,17 @@ td .yr{font-family:var(--mono);color:var(--rust)}
   .admin-shell{grid-template-columns:1fr}
   .admin-side{padding:18px}
   .admin-side nav{flex-direction:row;flex-wrap:wrap}
+  /* Fix 3: Hide brand tagline on tablet/mobile */
+  .brand-tag{display:none}
+  /* Fix 1: Lightbox tablet adjustments */
+  .lightbox-backdrop{padding:16px}
+  .lightbox-stage{gap:12px}
+  .lightbox-nav-btn{width:40px;height:40px;font-size:1.2rem}
+  .lightbox-title h3{font-size:1.1rem}
+  .lightbox-img{max-height:55vh}
+  /* Fix 2: Project status tabs — ensure proper wrapping */
+  .project-status-tabs{gap:8px !important}
+  .project-status-tabs .btn{padding:8px 14px !important;font-size:.72rem !important}
 }
 
 @media (max-width:620px){
@@ -530,6 +549,26 @@ td .yr{font-family:var(--mono);color:var(--rust)}
   .post-row{grid-template-columns:1fr;gap:12px}
   .post-row img{width:100%;height:120px}
   body{font-size:16px}
+  /* Fix 1: Lightbox fully mobile-optimised */
+  .lightbox-backdrop{padding:10px}
+  .lightbox-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .lightbox-close-btn{position:absolute;top:10px;right:10px;width:36px;height:36px;font-size:1rem}
+  .lightbox-stage{flex-direction:column;gap:10px}
+  .lightbox-nav-btn{width:36px;height:36px;font-size:1rem}
+  .lightbox-stage{flex-direction:row}
+  .lightbox-img{max-height:45vh}
+  .lightbox-media-wrapper{max-height:55vh}
+  .lightbox-details{margin-top:10px}
+  .lightbox-details p{font-size:.8rem}
+  .lightbox-thumbnails{gap:8px;padding-top:8px}
+  .lightbox-thumb-item{width:48px;height:36px}
+  .lightbox-title h3{font-size:.95rem;padding-right:40px}
+  .lightbox-counter{font-size:.65rem}
+  /* Fix 2: Project status tabs — stack on phones */
+  .project-status-tabs{flex-direction:column !important;gap:6px !important}
+  .project-status-tabs .btn{width:100% !important;text-align:center !important;padding:10px !important}
+  /* Fix 4: Footer bottom on small screens */
+  .footer-bottom{gap:8px;font-size:.6rem}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -544,5 +583,75 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 .project-meta span{display:block}
 .brand-tag span{display:block}
 img{background:var(--paper-2)}
-.hero-media img{background:transparent}
+.hero-media img, .brand img, .site-footer .footer-brand img{background:transparent}
+.site-footer .footer-brand img{height:44px;width:auto;margin-bottom:16px}
+
+/* ---------- Lightbox Modal & Slider ---------- */
+.project-thumb{cursor:pointer;position:relative;overflow:hidden}
+.project-thumb-overlay{
+  position:absolute;inset:0;background:rgba(11,13,32,.45);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s var(--ease);z-index:2;
+}
+.project-thumb:hover .project-thumb-overlay{opacity:1}
+.project-thumb:hover img{transform:scale(1.05)}
+.project-thumb img{transition:transform .4s var(--ease)}
+.lightbox-btn-zoom{
+  background:rgba(255,255,255,.95);color:var(--navy);
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 16px;border-radius:var(--radius);font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+
+.lightbox-backdrop{
+  position:fixed;inset:0;z-index:999;
+  background:rgba(11,13,32,.92);backdrop-filter:blur(14px);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:24px;animation:fadeIn .25s var(--ease);
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.lightbox-header{display:flex;align-items:center;justify-content:space-between;color:#fff;z-index:1000}
+.lightbox-title h3{margin:0;color:#fff;font-size:1.3rem}
+.lightbox-counter{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;color:var(--rust-2)}
+.lightbox-close-btn{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;
+  width:42px;height:42px;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  transition:background .2s var(--ease),transform .2s var(--ease);
+}
+.lightbox-close-btn:hover{background:var(--rust);border-color:var(--rust);transform:scale(1.1)}
+
+.lightbox-stage{
+  flex:1;display:flex;align-items:center;justify-content:space-between;
+  position:relative;max-width:1200px;width:100%;margin:0 auto;gap:20px;
+}
+.lightbox-nav-btn{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;
+  width:48px;height:48px;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;
+  transition:background .25s var(--ease),transform .25s var(--ease);
+}
+.lightbox-nav-btn:hover{background:var(--rust);border-color:var(--rust);transform:scale(1.1)}
+
+.lightbox-media-wrapper{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  max-height:70vh;position:relative;
+}
+.lightbox-img{
+  max-height:60vh;max-width:100%;object-fit:contain;border-radius:4px;
+  box-shadow:0 12px 36px rgba(0,0,0,.5);animation:slideFade .3s var(--ease);
+}
+@keyframes slideFade{from{opacity:.4;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+
+.lightbox-details{margin-top:16px;text-align:center;max-width:600px;color:#D3D7EA}
+.lightbox-details p{margin:4px 0;font-size:.92rem}
+
+.lightbox-thumbnails{display:flex;justify-content:center;gap:12px;padding-top:12px;overflow-x:auto}
+.lightbox-thumb-item{
+  width:64px;height:48px;border-radius:4px;overflow:hidden;cursor:pointer;
+  border:2px solid transparent;opacity:.5;transition:opacity .25s var(--ease),border-color .25s var(--ease);
+}
+.lightbox-thumb-item.is-active,.lightbox-thumb-item:hover{opacity:1;border-color:var(--rust)}
+.lightbox-thumb-item img{width:100%;height:100%;object-fit:cover}
 `;
