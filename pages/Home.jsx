@@ -28,7 +28,7 @@ export function Home({ go }) {
           <Eyebrow>{COMPANY.former} · Karachi</Eyebrow>
           <h1><span className="thin">New Chapter</span>Old Legacy</h1>
           <p className="lede">
-            Fifty-one years of civil construction in Pakistan: high-rise towers, hospitals,
+            Sixty-plus years of civil construction in Pakistan: high-rise towers, hospitals,
             campuses, five-star hotels, infrastructure and the interiors inside them —
             delivered under one contract by our own engineers, plant and crews.
           </p>
@@ -53,24 +53,29 @@ export function Home({ go }) {
         </div>
       </section>
 
-      <div className="marquee" aria-label="Selected clients">
-        <div className="marquee-track">
-          {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((item, i) => (
-            <span key={i} className="marquee-item">
-              {item.file ? (
-                <img
-                  src={`./logos/${item.file}`}
-                  alt={item.name}
-                  title={item.name}
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    if (e.target.nextSibling) e.target.nextSibling.style.display = 'inline';
-                  }}
-                />
-              ) : null}
-              <span style={{ display: item.file ? 'none' : 'inline' }}>{item.name}</span>
-            </span>
-          ))}
+      <div className="clients-marquee-section">
+        <div className="wrap clients-marquee-head">
+          <h2 className="clients-marquee-title">Our Clients</h2>
+        </div>
+        <div className="marquee" aria-label="Our clients">
+          <div className="marquee-track">
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((item, i) => (
+              <span key={i} className="marquee-item">
+                {item.file ? (
+                  <img
+                    src={`./logos/${item.file}`}
+                    alt={item.name}
+                    title={item.name}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      if (e.target.nextSibling) e.target.nextSibling.style.display = 'inline';
+                    }}
+                  />
+                ) : null}
+                <span style={{ display: item.file ? 'none' : 'inline' }}>{item.name}</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -132,7 +137,7 @@ export function Home({ go }) {
       <Section tone="dark">
         <Split media="menzies-ras" caption="Menzies RAS · Terminal 3, Karachi Airport" flip>
           <Eyebrow>Capability</Eyebrow>
-          <h2>We own the plant we schedule</h2>
+          <h2>Equipped to deliver</h2>
           <p className="lede">Programmes slip when a contractor is queuing for someone else&rsquo;s equipment. Ours is on our books.</p>
           <FeatureList items={CAPABILITY} numbered />
           <p style={{ marginTop: 26 }}>
@@ -145,7 +150,7 @@ export function Home({ go }) {
         <Reveal>
           <SectionHead
             eyebrow="Appreciations"
-            title="What clients have put in writing"
+            title="Reviews"
             aside=""
           />
           <p className="muted" style={{ marginTop: -28, marginBottom: 34 }}>

@@ -234,9 +234,6 @@ export function Achievements({ go }) {
                   textTransform: 'none'
                 }}
               >
-                <span style={{ color: 'var(--rust)', marginRight: '6px' }}>
-                  {card.number} —
-                </span>
                 {card.title}
               </h3>
 

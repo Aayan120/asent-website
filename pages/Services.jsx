@@ -1,7 +1,7 @@
 import {
   Cards, CTA, Eyebrow, FeatureList, PageHead, Reveal, Section, SectionHead, Split,
 } from '../ui.jsx';
-import { PROCESS, SERVICE_DETAIL, SERVICES_MORE } from '../data.js';
+import { SERVICE_DETAIL, SERVICES_MORE } from '../data.js';
 
 export function Services({ go }) {
   return (
@@ -24,18 +24,8 @@ export function Services({ go }) {
       ))}
 
       <Section tone="paper2">
-        <Reveal><SectionHead eyebrow="05 – 09" title={<>Systems, infrastructure<br />and turnkey delivery</>} /></Reveal>
+        <Reveal><SectionHead eyebrow="Turnkey Delivery" title={<>Systems, infrastructure<br />and turnkey delivery</>} /></Reveal>
         <Reveal delay="1"><Cards items={SERVICES_MORE} /></Reveal>
-      </Section>
-
-      <Section>
-        <Reveal>
-          <SectionHead
-            split eyebrow="How a contract runs" title="Five stages, in order"
-            aside="Each stage produces the document the next one depends on."
-          />
-        </Reveal>
-        <Reveal delay="1"><FeatureList items={PROCESS.map(([a, b]) => [`${a}.`, b])} numbered /></Reveal>
       </Section>
 
       <CTA

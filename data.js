@@ -14,7 +14,7 @@ export const COMPANY = {
 };
 
 export const STATS = [
-  ['51', 'Years in civil construction'],
+  ['60+', 'Years in civil construction'],
   ['C-A', 'PEC category, no financial limit'],
   ['385ft', 'Centerpoint, 28 storeys, Karachi'],
   ['1.65M', 'Sq ft under way at Peace Apartments'],
@@ -288,38 +288,38 @@ export const CLIENT_LOGOS = [
 
 
 export const SERVICES = [
-  ['01 / Structures', 'High-rise towers & multi-storey buildings', 'Piling, substructure, superstructure and podium works for towers up to 32 floors, executed with our own batching plants and pumps.'],
-  ['02 / Buildings', 'Apartments, hospitals, campuses', 'Residential apartments, commercial complexes, hospitals, multipurpose halls, industrial units, educational institutes and sports complexes.'],
-  ['03 / Interiors', 'Bank branches, offices & suites', 'Interior decoration for branch networks, executive floors and luxury suites, including custom-made furniture, fixtures and upholstery.'],
-  ['04 / Hospitality', 'Five-star hotels, banquets & suites', 'New build and refurbishment for operating hotels, phased so rooms and public areas return to service without closing the property.'],
-  ['05 / Systems', 'MEP, HVAC & medical gas', 'Mechanical, electrical and plumbing works, air conditioning, fire fighting and medical gas systems coordinated with the structure, not after it.'],
-  ['06 / Turnkey', 'Infrastructure & EPC', 'Roads, sewerage, external development and engineering, procurement and construction on a turnkey basis with a single point of responsibility.'],
+  ['Structures', 'High-rise towers & multi-storey buildings', 'Piling, substructure, superstructure and podium works for towers up to 32 floors, executed with our own batching plants and pumps.'],
+  ['Buildings', 'Apartments, hospitals, campuses', 'Residential apartments, commercial complexes, hospitals, multipurpose halls, industrial units, educational institutes and sports complexes.'],
+  ['Interiors', 'Bank branches, offices & suites', 'Interior decoration for branch networks, executive floors and luxury suites, including custom-made furniture, fixtures and upholstery.'],
+  ['Hospitality', 'Five-star hotels, banquets & suites', 'New build and refurbishment for operating hotels, phased so rooms and public areas return to service without closing the property.'],
+  ['Systems', 'MEP, HVAC & medical gas', 'Mechanical, electrical and plumbing works, air conditioning, fire fighting and medical gas systems coordinated with the structure, not after it.'],
+  ['Turnkey', 'Infrastructure & EPC', 'Roads, sewerage, external development and engineering, procurement and construction on a turnkey basis with a single point of responsibility.'],
 ];
 
 export const SERVICE_DETAIL = [
   {
-    eyebrow: '01 — Structures', title: 'High-rise towers & multi-storey buildings',
+    eyebrow: 'Structures', title: 'High-rise towers & multi-storey buildings',
     lede: 'From trial piles to topping out, with the concrete supplied by our own plants.',
     body: 'Tower work is a sequence of decisions that cannot be revisited: pile capacity, raft pour continuity, formwork cycle, crane reach. We plan those first and staff the site accordingly — a project manager on site, planning and co-ordination engineers behind them, and quantity surveying that keeps commercial reality attached to the programme.',
     points: ['Bored piling, ground improvement and deep substructure', 'RCC frames, podiums, cores and post-tensioned slabs', 'Light gauge steel and pre-engineered buildings', 'Facades, glazing and fair-face concrete finishing'],
     img: 'arkadian', caption: 'Tower C & podium · The Arkadian, Karachi',
   },
   {
-    eyebrow: '02 — Buildings', title: 'Hospitals, campuses & complexes', flip: true,
+    eyebrow: 'Buildings', title: 'Hospitals, campuses & complexes', flip: true,
     lede: 'Buildings that have to work for the people inside them from day one.',
     body: 'Hospitals and universities are not ordinary shells. Clinical areas need medical gas, isolation, and finishes that can be cleaned; campuses need to be handed over between semesters. We have built and extended both while they stayed open, phasing works around patients, students and staff.',
     points: ['Hospitals, medical centres and clinical fit-out', 'Educational institutes, hostels, auditoria and libraries', 'Residential apartments and large multi-family housing', 'Commercial complexes, industrial units and sports complexes'],
     img: 'mjsf-hospital', caption: 'MJSF Hospital · Sehwan, Sindh — 58 acres',
   },
   {
-    eyebrow: '03 — Interiors', title: 'Interior decoration & custom furniture',
+    eyebrow: 'Interiors', title: 'Interior decoration & custom furniture',
     lede: 'Bank branches, executive floors, luxury suites — and the furniture that goes into them, made by us.',
     body: 'Interior decoration is where a programme is usually lost, because it depends on dozens of suppliers arriving in the right order. We manufacture our own furniture items, fixtures and upholstery, which removes the longest lead item from someone else\u2019s factory queue and puts it on our own schedule.',
     points: ['Branch networks and banking halls, delivered city by city', 'Executive offices, boardrooms and dining floors', 'Custom joinery, fixtures, upholstery and loose furniture', 'Stone, metalwork, feature ceilings and lighting integration'],
     img: 'exec-dining', caption: 'Executive dining, 25th floor · TPL Centrepoint',
   },
   {
-    eyebrow: '04 — Hospitality', title: 'Five-star hotels, banquets & suites', flip: true, dark: true,
+    eyebrow: 'Hospitality', title: 'Five-star hotels, banquets & suites', flip: true, dark: true,
     lede: 'New build and refurbishment for properties that cannot simply close.',
     body: 'At Zaver Pearl Continental in Gwadar we delivered civil, mechanical and interior decoration for a 310,000 sq ft five-star hotel. At Serena Quetta we ran an 18-month renovation across guest rooms, common areas and back-of-house. Hotel work rewards sequencing: floor by floor, wing by wing, with noise, dust and access controlled around guests.',
     points: ['Guest rooms, suites, lobbies and banqueting', 'Back-of-house, kitchens and services upgrades', 'Phased refurbishment of operating properties'],
@@ -328,12 +328,12 @@ export const SERVICE_DETAIL = [
 ];
 
 export const SERVICES_MORE = [
-  ['05 / MEP', 'Mechanical, electrical & plumbing', 'Full MEP packages coordinated with the structure: power distribution, plumbing, drainage, fire fighting and medical gas pipeline systems for clinical facilities.'],
-  ['06 / HVAC', 'Air conditioning & ventilation', 'HVAC installation from chiller plant to grille, commissioned and balanced, for offices, hospitals, hotels, pharmaceutical facilities and auditoria.'],
-  ['07 / Infrastructure', 'Roads, sewerage & external development', 'Road networks, sewerage treatment plants with storage tanks, pedestrian bridges, boundary walls, landscaping and site-wide external development.'],
-  ['08 / Renovation', 'Renovation & refurbishment', 'Upgrades and retrofits inside live buildings — bank head offices, hospital wings, university blocks — planned around the working day of the occupants.'],
-  ['09 / Turnkey', 'Engineering, procurement & construction', 'EPC on a turnkey basis: one contract, one programme, one point of responsibility from design co-ordination through to handover and defects liability.'],
-  ['+ / Manufacturing', 'Furniture & fixtures', 'Manufacture and supply of custom-made furniture items, fixtures and upholstery, equipped to meet the requirements of an interior decoration package.'],
+  ['MEP', 'Mechanical, electrical & plumbing', 'Full MEP packages coordinated with the structure: power distribution, plumbing, drainage, fire fighting and medical gas pipeline systems for clinical facilities.'],
+  ['HVAC', 'Air conditioning & ventilation', 'HVAC installation from chiller plant to grille, commissioned and balanced, for offices, hospitals, hotels, pharmaceutical facilities and auditoria.'],
+  ['Infrastructure', 'Roads, sewerage & external development', 'Road networks, sewerage treatment plants with storage tanks, pedestrian bridges, boundary walls, landscaping and site-wide external development.'],
+  ['Renovation', 'Renovation & refurbishment', 'Upgrades and retrofits inside live buildings — bank head offices, hospital wings, university blocks — planned around the working day of the occupants.'],
+  ['Turnkey', 'Engineering, procurement & construction', 'EPC on a turnkey basis: one contract, one programme, one point of responsibility from design co-ordination through to handover and defects liability.'],
+  ['Manufacturing', 'Furniture & fixtures', 'Manufacture and supply of custom-made furniture items, fixtures and upholstery, equipped to meet the requirements of an interior decoration package.'],
 ];
 
 export const PROCESS = [

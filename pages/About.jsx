@@ -14,7 +14,7 @@ export function About({ go }) {
       <Section grid>
         <Split media="sanofi" caption="Sanofi Aventis Pharma · Korangi, Karachi">
           <Eyebrow>Introduction</Eyebrow>
-          <h2>Fifty-Six years,<br />and still on site</h2>
+          <h2>Sixty-One years,<br />and still on site</h2>
           <p>
             ASENT — for most of its history Al-Shafi Enterprises — has been building in
             Pakistan since 1966. The company brings together qualified, experienced engineers
