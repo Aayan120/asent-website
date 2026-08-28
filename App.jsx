@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { CSS } from './theme.js';
 import { Header } from './components/Header.jsx';
 import { Footer } from './components/Footer.jsx';
-import { About, Achievements, Admin, Blog, Contact, Equipment, Home, Post, Projects, Services } from './pages.jsx';
+import { About, Achievements, Admin, Blog, Career, Careers, Contact, Equipment, Events, Event, Home, HSEPolicy, Post, Projects, Services } from './pages.jsx';
 
 function currentPath() {
   const h = typeof window !== 'undefined' ? window.location.hash.replace(/^#/, '') : '';
@@ -46,6 +46,9 @@ export default function App() {
     page = <Projects go={go} subPath={sub} />;
   }
   else if (path === '/equipment') page = <Equipment go={go} />;
+  else if (path === '/careers' || path === '/career') page = <Career go={go} />;
+  else if (path === '/events' || path === '/event') page = <Events go={go} />;
+  else if (path === '/hse' || path === '/hse-policy' || path === '/hsepolicy') page = <HSEPolicy go={go} />;
   else if (path === '/blog' || path === '/achievements') page = <Achievements go={go} />;
   else if (path === '/admin') page = <Admin go={go} />;
   else if (path === '/contact') page = <Contact go={go} />;

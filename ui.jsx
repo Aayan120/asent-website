@@ -68,10 +68,10 @@ export function Reveal({ delay, className = '', children }) {
   );
 }
 
-export function Btn({ href, onClick, variant = '', children, type, small }) {
+export function Btn({ href, onClick, variant = '', children, type, small, ...rest }) {
   const cls = ['btn', variant && `btn--${variant}`, small && 'btn--sm'].filter(Boolean).join(' ');
-  if (type) return <button className={cls} type={type} onClick={onClick}>{children}</button>;
-  return <a className={cls} href={href} onClick={onClick}>{children}</a>;
+  if (type) return <button className={cls} type={type} onClick={onClick} {...rest}>{children}</button>;
+  return <a className={cls} href={href} onClick={onClick} {...rest}>{children}</a>;
 }
 
 export function Arrow() { return <span className="arrow">→</span>; }
@@ -141,7 +141,11 @@ export function DataTable({ head, rows, yearCol }) {
   );
 }
 
-export function CTA({ title, lede, label, href, go }) {
+export function CTA({ title, lede, label, href, go, download, target }) {
+  const isFileOrExternal = download || (href && (href.endsWith('.pdf') || href.startsWith('http')));
+  const linkHref = isFileOrExternal ? href : `#${href}`;
+  const handleClick = (!isFileOrExternal && go) ? go(href) : undefined;
+
   return (
     <section className="cta-band">
       <div className="wrap">
@@ -149,7 +153,18 @@ export function CTA({ title, lede, label, href, go }) {
           <h2>{title}</h2>
           <p className="lede">{lede}</p>
         </div>
-        <div><Btn variant="light" href={`#${href}`} onClick={go(href)}>{label} <Arrow /></Btn></div>
+        <div>
+          <Btn
+            variant="light"
+            href={linkHref}
+            onClick={handleClick}
+            download={download}
+            target={target || (isFileOrExternal ? '_blank' : undefined)}
+            rel={isFileOrExternal ? 'noopener noreferrer' : undefined}
+          >
+            {label} <Arrow />
+          </Btn>
+        </div>
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ export function Footer({ go }) {
           <ul>
             <li><a href="#/about" onClick={go('/about')}>About ASENT</a></li>
             <li><a href="#/about" onClick={go('/about')}>Management</a></li>
-            <li><a href="#/about" onClick={go('/about')}>HSE &amp; quality</a></li>
+            <li><a href="#/hse-policy" onClick={go('/hse-policy')}>HSE Policy</a></li>
             <li><a href="#/blog" onClick={go('/blog')}>Achievements</a></li>
           </ul>
         </div>
@@ -29,8 +29,8 @@ export function Footer({ go }) {
           <ul>
             <li><a href="#/services" onClick={go('/services')}>Services</a></li>
             <li><a href="#/projects" onClick={go('/projects')}>All Projects</a></li>
-            <li><a href="#/projects/ongoing" onClick={go('/projects/ongoing')}>On Going Projects</a></li>
-            <li><a href="#/projects/completed" onClick={go('/projects/completed')}>Completed Projects</a></li>
+            <li><a href="#/careers" onClick={go('/careers')}>Careers</a></li>
+            <li><a href="#/events" onClick={go('/events')}>Events</a></li>
             <li><a href="#/equipment" onClick={go('/equipment')}>Equipment</a></li>
           </ul>
         </div>

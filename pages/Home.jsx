@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { IMAGES } from '../images.js';
 import {
   Arrow, Btn, Cards, CTA, Eyebrow, FeatureList, Reveal,
@@ -8,19 +9,34 @@ import {
 } from '../data.js';
 
 export function Home({ go }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      const promise = videoRef.current.play();
+      if (promise !== undefined) {
+        promise.catch((e) => console.log('Autoplay handled:', e));
+      }
+    }
+  }, []);
+
   return (
     <>
       <section className="hero">
         <div className="hero-media">
           <video
+            ref={videoRef}
+            src="./videos/Homepage.mp4"
             autoPlay
             loop
             muted
             playsInline
-            poster={IMAGES['hero-mangrove-aerial']}
+            preload="auto"
           >
             <source src="./videos/Homepage.mp4" type="video/mp4" />
-            <img src={IMAGES['hero-mangrove-aerial']} alt="Aerial view of The Mangrove development, Karachi" />
+            <source src="Homepage.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="hero-wedge" />
@@ -170,9 +186,12 @@ export function Home({ go }) {
       </Section>
 
       <CTA
-        go={go} href="/contact" label="Request a proposal"
-        title="Have drawings on the table?"
-        lede="Send us the scope and the site. We will come back with a method, a programme and a price."
+        go={go}
+        href="/ASENT Profile.pdf"
+        download="ASENT-Company-Profile.pdf"
+        label="Download Company Profile"
+        title="Looking to prequalify ASENT for your project?"
+        lede="Download our complete corporate profile, including PEC Category C-A registration, audited ISO certifications, owned plant schedule, and nationwide project portfolio."
       />
     </>
   );

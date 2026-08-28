@@ -36,5 +36,11 @@ export const IMAGES = {
   "usaid": "./images/usaid.jpg",
   "zaver-pc": "./images/zaver-pc.jpg",
   "logoWhite": "./images/logoWhite.png",
-  "markNavy": "./images/markNavy.png"
+  "markNavy": "./images/markNavy.png",
+  "cert-agakhan": "./images/HSEcertificates/Agakhangilgit.png",
+  "cert-ibasukkur": "./images/HSEcertificates/IBASUKKUR.png",
+  "cert-kpt": "./images/HSEcertificates/KPT.png",
+  "cert-lnh": "./images/HSEcertificates/LNH.png",
+  "cert-usaid": "./images/HSEcertificates/USAID.png"
 };
+

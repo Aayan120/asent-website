@@ -61,6 +61,7 @@ h1,h2,h3,h4{
   letter-spacing:-.015em;
   margin:0 0 .5em;
   text-transform:uppercase;
+  color:var(--navy);
 }
 h1{font-size:clamp(2.6rem,7vw,5.4rem)}
 h2{font-size:clamp(2rem,4.4vw,3.4rem)}
@@ -98,10 +99,10 @@ strong{font-weight:600}
 .section{padding-block:var(--sec);position:relative}
 .section--tight{padding-block:clamp(44px,5vw,70px)}
 .section--dark{background:var(--navy);color:#EAECF5}
-.section--dark h1,.section--dark h2,.section--dark h3{color:#fff}
+.section--dark h1,.section--dark h2,.section--dark h3,.section--dark h4{color:#fff}
 .section--dark .lede{color:#EAECF5}
 .section--ink{background:var(--ink);color:#D9DCEA}
-.section--ink h1,.section--ink h2,.section--ink h3{color:#fff}
+.section--ink h1,.section--ink h2,.section--ink h3,.section--ink h4{color:#fff}
 .section--ink .lede{color:#EAECF5}
 .section--paper2{background:var(--paper-2)}
 
@@ -240,7 +241,7 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
 .stats .stat:first-child{padding-left:0}
 
 /* ---------- marquee (clients) ---------- */
-.clients-marquee-section{background:var(--paper-2);border-top:1px solid var(--line);padding-top:28px}
+.clients-marquee-section{background:transparent;border-top:1px solid var(--line);padding-top:28px}
 .clients-marquee-head{text-align:center;margin-bottom:12px}
 .clients-marquee-title{
   font-family:var(--display);
@@ -253,13 +254,14 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
   letter-spacing:.04em;
 }
 .clients-marquee-section .marquee{border-top:0;padding-top:12px;padding-bottom:24px}
-.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--paper-2);padding-block:22px}
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:transparent;padding-block:22px}
 .marquee-track{display:flex;align-items:center;gap:48px;width:max-content;animation:slide 60s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
 .marquee-item{display:flex;align-items:center;gap:48px;white-space:nowrap}
 .marquee-item img{
   height:42px;max-width:150px;object-fit:contain;
-  filter:grayscale(100%) opacity(0.8);
+  mix-blend-mode:multiply;
+  filter:grayscale(100%) opacity(0.85);
   transition:filter .3s var(--ease), opacity .3s var(--ease), transform .3s var(--ease);
 }
 .marquee-item img:hover{filter:grayscale(0%) opacity(1);transform:scale(1.08)}
@@ -303,9 +305,12 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
 }
 .card:hover{background:#fff;transform:translateY(-4px)}
 .card:hover::after{opacity:.12;transform:rotate(45deg) translateY(-14px)}
-.card h3{margin-bottom:.6em}
-.card p{font-size:.95rem;color:var(--steel);margin:0}
+.card h3{color:var(--navy);margin-bottom:.6em}
+.card p{font-size:.95rem;color:var(--navy-2);margin:0;line-height:1.6}
 .card .num-tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;color:var(--rust);display:block;margin-bottom:18px}
+.section--dark .card{background:#ffffff}
+.section--dark .card h3{color:var(--navy) !important}
+.section--dark .card p{color:var(--navy-2)}
 
 /* ---------- project cards ---------- */
 .project-grid{display:grid;gap:clamp(18px,2.4vw,30px);grid-template-columns:repeat(3,1fr)}
@@ -507,13 +512,19 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 
 .contact-grid{display:grid;gap:clamp(24px,4vw,56px);grid-template-columns:1fr 1fr}
 .office{border-top:2px solid var(--navy);padding-top:18px;margin-bottom:28px}
-.office h4{margin-bottom:8px}
+.office h4{color:var(--navy);margin-bottom:8px}
 .office p{font-size:.92rem;color:var(--navy-2);margin:0}
 
 .spec-list{display:grid;gap:2px;grid-template-columns:repeat(2,1fr);background:var(--line)}
-.spec{background:var(--paper);padding:22px}
-.spec h4{margin-bottom:10px}
-.spec p{font-size:.9rem;color:var(--steel);margin:0}
+.spec{background:var(--paper);padding:24px;transition:background .25s var(--ease),transform .25s var(--ease)}
+.spec h4{margin-bottom:10px;color:var(--navy);font-size:1.05rem;font-weight:800;letter-spacing:.02em}
+.spec p{font-size:.92rem;color:var(--navy-2);margin:0;line-height:1.6}
+.spec:hover{background:#ffffff}
+
+.section--dark .spec-list{background:var(--line-dark)}
+.section--dark .spec{background:#ffffff;border:1px solid rgba(255,255,255,.08)}
+.section--dark .spec h4{color:var(--navy) !important}
+.section--dark .spec p{color:var(--navy-2)}
 
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
@@ -550,9 +561,9 @@ td .yr{font-family:var(--mono);color:var(--rust)}
   /* Fix 1: Lightbox tablet adjustments */
   .lightbox-backdrop{padding:16px}
   .lightbox-stage{gap:12px}
-  .lightbox-nav-btn{width:40px;height:40px;font-size:1.2rem}
-  .lightbox-title h3{font-size:1.1rem}
-  .lightbox-img{max-height:55vh}
+  .lightbox-nav-btn{width:42px;height:42px;font-size:1.3rem}
+  .lightbox-title h3{font-size:1.15rem}
+  .lightbox-img{max-height:clamp(280px, 48vh, 460px)}
   /* Fix 2: Project status tabs — ensure proper wrapping */
   .project-status-tabs{gap:8px !important}
   .project-status-tabs .btn{padding:8px 14px !important;font-size:.72rem !important}
@@ -567,19 +578,18 @@ td .yr{font-family:var(--mono);color:var(--rust)}
   .post-row img{width:100%;height:120px}
   body{font-size:16px}
   /* Fix 1: Lightbox fully mobile-optimised */
-  .lightbox-backdrop{padding:10px}
-  .lightbox-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .lightbox-backdrop{padding:12px 10px}
+  .lightbox-header{flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:8px}
   .lightbox-close-btn{position:absolute;top:10px;right:10px;width:36px;height:36px;font-size:1rem}
-  .lightbox-stage{flex-direction:column;gap:10px}
-  .lightbox-nav-btn{width:36px;height:36px;font-size:1rem}
-  .lightbox-stage{flex-direction:row}
-  .lightbox-img{max-height:45vh}
-  .lightbox-media-wrapper{max-height:55vh}
-  .lightbox-details{margin-top:10px}
-  .lightbox-details p{font-size:.8rem}
+  .lightbox-stage{flex-direction:row;gap:8px}
+  .lightbox-nav-btn{width:36px;height:36px;font-size:1.1rem}
+  .lightbox-img{max-height:clamp(220px, 42vh, 340px)}
+  .lightbox-details{margin-top:8px}
+  .lightbox-details p{font-size:.82rem}
+  .lightbox-details .project-scope{font-size:.82rem}
   .lightbox-thumbnails{gap:8px;padding-top:8px}
-  .lightbox-thumb-item{width:48px;height:36px}
-  .lightbox-title h3{font-size:.95rem;padding-right:40px}
+  .lightbox-thumb-item{width:52px;height:38px}
+  .lightbox-title h3{font-size:1rem;padding-right:40px}
   .lightbox-counter{font-size:.65rem}
   /* Fix 2: Project status tabs — stack on phones */
   .project-status-tabs{flex-direction:column !important;gap:6px !important}
@@ -600,7 +610,7 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 .project-meta span{display:block}
 .brand-tag span{display:block}
 img{background:var(--paper-2)}
-.hero-media img, .brand img, .site-footer .footer-brand img{background:transparent}
+.hero-media img, .brand img, .site-footer .footer-brand img, .lightbox-img, .lightbox-thumb-item img{background:transparent !important}
 .site-footer .footer-brand img{height:44px;width:auto;margin-bottom:16px}
 
 /* ---------- Lightbox Modal & Slider ---------- */
@@ -622,55 +632,66 @@ img{background:var(--paper-2)}
 
 .lightbox-backdrop{
   position:fixed;inset:0;z-index:999;
-  background:rgba(11,13,32,.92);backdrop-filter:blur(14px);
+  background:rgba(11,13,32,.95);backdrop-filter:blur(16px);
   display:flex;flex-direction:column;justify-content:space-between;
-  padding:24px;animation:fadeIn .25s var(--ease);
+  padding:14px 20px;animation:fadeIn .25s var(--ease);
+  overflow-y:auto;
 }
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-.lightbox-header{display:flex;align-items:center;justify-content:space-between;color:#fff;z-index:1000}
-.lightbox-title h3{margin:0;color:#fff;font-size:1.3rem}
-.lightbox-counter{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;color:var(--rust-2)}
+.lightbox-header{display:flex;align-items:center;justify-content:space-between;color:#fff;z-index:1000;max-width:min(1380px, 94vw);width:100%;margin:0 auto 6px}
+.lightbox-title h3{margin:0;color:#fff;font-size:1.35rem;font-weight:800;letter-spacing:.02em}
+.lightbox-counter{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;color:var(--rust-2);margin-top:2px;display:block}
 .lightbox-close-btn{
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;
-  width:42px;height:42px;border-radius:50%;cursor:pointer;
+  width:44px;height:44px;border-radius:50%;cursor:pointer;
   display:flex;align-items:center;justify-content:center;font-size:1.2rem;
   transition:background .2s var(--ease),transform .2s var(--ease);
 }
 .lightbox-close-btn:hover{background:var(--rust);border-color:var(--rust);transform:scale(1.1)}
 
 .lightbox-stage{
-  flex:1;display:flex;align-items:center;justify-content:space-between;
-  position:relative;max-width:1200px;width:100%;margin:0 auto;gap:20px;
+  flex:1;display:flex;align-items:center;justify-content:center;
+  position:relative;max-width:min(1480px, 96vw);width:100%;margin:0 auto;gap:16px;
 }
 .lightbox-nav-btn{
   background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;
-  width:48px;height:48px;border-radius:50%;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;
+  width:52px;height:52px;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;
   transition:background .25s var(--ease),transform .25s var(--ease);
 }
 .lightbox-nav-btn:hover{background:var(--rust);border-color:var(--rust);transform:scale(1.1)}
 
 .lightbox-media-wrapper{
   flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  max-height:70vh;position:relative;
+  position:relative;width:100%;max-width:min(1380px, 94vw);
 }
 .lightbox-img{
-  max-height:60vh;max-width:100%;object-fit:contain;border-radius:4px;
-  box-shadow:0 12px 36px rgba(0,0,0,.5);animation:slideFade .3s var(--ease);
+  width:min(1307px, 90vw);
+  max-height:min(760px, 68vh);
+  aspect-ratio:1307 / 760;
+  object-fit:cover;
+  background:transparent !important;
+  border-radius:8px;
+  box-shadow:0 24px 64px rgba(0,0,0,.85);
+  border:1px solid rgba(255,255,255,.12);
+  display:block;
+  margin:0 auto;
+  image-rendering:auto;
+  animation:slideFade .28s var(--ease);
 }
-@keyframes slideFade{from{opacity:.4;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes slideFade{from{opacity:.4;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
 
-.lightbox-details{margin-top:16px;text-align:center;max-width:680px;color:#EAECF5}
-.lightbox-details p{margin:4px 0;font-size:.92rem}
-.lightbox-details .project-meta{color:#FFFFFF;font-size:.78rem;letter-spacing:.12em;margin-bottom:8px;font-weight:600}
-.lightbox-details .project-scope{color:#EAECF5;border-top:none;padding-top:4px;font-size:.94rem;line-height:1.6}
+.lightbox-details{margin-top:10px;text-align:center;width:100%;max-width:min(1307px, 90vw);color:#EAECF5}
+.lightbox-details p{margin:2px 0;font-size:.92rem}
+.lightbox-details .project-meta{color:#FFFFFF;font-size:.82rem;letter-spacing:.12em;margin-bottom:4px;font-weight:600}
+.lightbox-details .project-scope{color:#D5DAEB;border-top:none;padding-top:2px;font-size:.92rem;line-height:1.5}
 
-.lightbox-thumbnails{display:flex;justify-content:center;gap:12px;padding-top:12px;overflow-x:auto}
+.lightbox-thumbnails{display:flex;justify-content:center;gap:12px;padding-top:10px;overflow-x:auto}
 .lightbox-thumb-item{
-  width:64px;height:48px;border-radius:4px;overflow:hidden;cursor:pointer;
-  border:2px solid transparent;opacity:.5;transition:opacity .25s var(--ease),border-color .25s var(--ease);
+  width:72px;height:50px;border-radius:4px;overflow:hidden;cursor:pointer;
+  border:2px solid transparent;opacity:.5;transition:opacity .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
 }
-.lightbox-thumb-item.is-active,.lightbox-thumb-item:hover{opacity:1;border-color:var(--rust)}
-.lightbox-thumb-item img{width:100%;height:100%;object-fit:cover}
+.lightbox-thumb-item.is-active,.lightbox-thumb-item:hover{opacity:1;border-color:var(--rust);transform:scale(1.08)}
+.lightbox-thumb-item img{width:100%;height:100%;object-fit:cover;background:transparent !important}
 `;

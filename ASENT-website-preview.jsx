@@ -207,7 +207,7 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
   background:var(--ink);color:#fff;overflow:hidden;padding-top:120px;
 }
 .hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;opacity:.62;transform:scale(1.06);animation:heroDrift 18s var(--ease) forwards}
+.hero-media img, .hero-media video{width:100%;height:100%;object-fit:cover;opacity:.62;transform:scale(1.06);animation:heroDrift 18s var(--ease) forwards}
 @keyframes heroDrift{to{transform:scale(1)}}
 .hero-media::after{
   content:"";position:absolute;inset:0;
@@ -1185,7 +1185,16 @@ function Home({ go }) {
     <>
       <section className="hero">
         <div className="hero-media">
-          <img src={IMAGES['hero-mangrove-aerial']} alt="Aerial view of The Mangrove development, Karachi" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="Homepage.mp4" type="video/mp4" />
+            <source src="./videos/Homepage.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="hero-wedge" />
         <div className="wrap hero-inner">
@@ -2256,7 +2265,7 @@ export default function App() {
             <ul>
               <li><a href="#/about" onClick={go('/about')}>About ASENT</a></li>
               <li><a href="#/about" onClick={go('/about')}>Management</a></li>
-              <li><a href="#/about" onClick={go('/about')}>HSE &amp; quality</a></li>
+              <li><a href="#/about" onClick={go('/about')}>HSE Policy</a></li>
               <li><a href="#/blog" onClick={go('/blog')}>Insights</a></li>
             </ul>
           </div>
