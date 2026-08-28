@@ -302,7 +302,7 @@ export const SERVICE_DETAIL = [
     lede: 'From trial piles to topping out, with the concrete supplied by our own plants.',
     body: 'Tower work is a sequence of decisions that cannot be revisited: pile capacity, raft pour continuity, formwork cycle, crane reach. We plan those first and staff the site accordingly — a project manager on site, planning and co-ordination engineers behind them, and quantity surveying that keeps commercial reality attached to the programme.',
     points: ['Bored piling, ground improvement and deep substructure', 'RCC frames, podiums, cores and post-tensioned slabs', 'Light gauge steel and pre-engineered buildings', 'Facades, glazing and fair-face concrete finishing'],
-    img: 'arkadian', caption: 'Tower C & podium · The Arkadian, Karachi',
+    img: 'arkadian', caption: '',
   },
   {
     eyebrow: 'Buildings', title: 'Hospitals, campuses & complexes', flip: true,

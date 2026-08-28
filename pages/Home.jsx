@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IMAGES } from '../images.js';
+import { projectStore } from '../projectStore.js';
 import {
   Arrow, Btn, Cards, CTA, Eyebrow, FeatureList, Reveal,
   Section, SectionHead, Split,
@@ -10,6 +11,13 @@ import {
 
 export function Home({ go }) {
   const videoRef = useRef(null);
+  const [projectsList, setProjectsList] = useState(PROJECTS);
+
+  useEffect(() => {
+    projectStore.all().then((data) => {
+      if (data && data.length > 0) setProjectsList(data);
+    }).catch((e) => console.log('Home project load fallback:', e));
+  }, []);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -96,7 +104,7 @@ export function Home({ go }) {
       </div>
 
       <Section grid>
-        <Split media="mangrove-interior" caption="Residential interior · The Mangrove, Karachi">
+        <Split media="peace-apartments-site" caption="Peace Apartments · Naya Nazimabad, Karachi">
           <Eyebrow>Who we are</Eyebrow>
           <h2>A contractor built around its engineers</h2>
           <p className="lede">
@@ -143,7 +151,7 @@ export function Home({ go }) {
           />
         </Reveal>
         <div className="project-grid">
-          {PROJECTS.slice(0, 6).map((p) => <ProjectCard key={p.title} p={p} />)}
+          {projectsList.slice(0, 6).map((p) => <ProjectCard key={p.id || p.title} p={p} />)}
         </div>
         <p style={{ marginTop: 34 }}>
           <Btn variant="ghost" href="#/projects" onClick={go('/projects')}>Every project, completed and ongoing <Arrow /></Btn>
@@ -151,7 +159,7 @@ export function Home({ go }) {
       </Section>
 
       <Section tone="dark">
-        <Split media="menzies-ras" caption="Menzies RAS · Terminal 3, Karachi Airport" flip>
+        <Split media="one-hoshang" caption="One Hoshang · Architectural Model" flip>
           <Eyebrow>Capability</Eyebrow>
           <h2>Equipped to deliver</h2>
           <p className="lede">Programmes slip when a contractor is queuing for someone else&rsquo;s equipment. Ours is on our books.</p>
@@ -198,16 +206,17 @@ export function Home({ go }) {
 }
 
 export function ProjectCard({ p }) {
+  const imgSrc = projectStore.resolveImage(p.img) || IMAGES[p.img];
   return (
     <article className="project">
       <div className="project-thumb">
-        <img src={IMAGES[p.img]} alt={p.title} loading="lazy" />
+        <img src={imgSrc} alt={p.title} loading="lazy" />
         <span className="project-status" data-s={p.live ? 'progress' : undefined}>{p.status}</span>
       </div>
       <div className="project-body">
         <h3>{p.title}</h3>
         <p className="project-meta">
-          {p.meta.split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
+          {(p.meta || '').split('\n').map((l, i) => <span key={i}>{l}<br /></span>)}
         </p>
         <p className="project-scope">{p.scope}</p>
       </div>

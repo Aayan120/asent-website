@@ -46,9 +46,6 @@ export function Footer({ go }) {
       </div>
       <div className="wrap footer-bottom">
         <span>© {new Date().getFullYear()} ASENT · All rights reserved</span>
-        <span>
-          <a href="#/admin" onClick={go('/admin')}>Admin panel</a> ·{' '}
-        </span>
       </div>
     </footer>
   );

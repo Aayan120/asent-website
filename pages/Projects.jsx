@@ -4,10 +4,15 @@ import {
   CTA, DataTable, PageHead, Reveal, Section, SectionHead,
 } from '../ui.jsx';
 import {
-  CLIENTS, FILTERS, PROJECTS, REGISTER_DONE, REGISTER_PROGRESS,
+  CLIENTS, FILTERS, REGISTER_DONE, REGISTER_PROGRESS,
 } from '../data.js';
+import { projectStore } from '../projectStore.js';
 
 export function Projects({ go, subPath }) {
+  // Projects data from Firebase (or fallback)
+  const [allProjects, setAllProjects] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+
   // Primary status view tab: 'all' | 'ongoing' | 'completed'
   const [statusTab, setStatusTab] = useState(() => {
     if (subPath === 'ongoing') return 'ongoing';
@@ -22,6 +27,19 @@ export function Projects({ go, subPath }) {
   // Lightbox State
   const [activeProject, setActiveProject] = useState(null);
   const [photoIndex, setPhotoIndex] = useState(0);
+
+  // Load projects from Firebase
+  useEffect(() => {
+    let cancelled = false;
+    setDataLoading(true);
+    projectStore.all().then((data) => {
+      if (!cancelled) {
+        setAllProjects(data);
+        setDataLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     if (subPath === 'ongoing') setStatusTab('ongoing');
@@ -41,7 +59,7 @@ export function Projects({ go, subPath }) {
   }, []);
 
   const shownProjects = useMemo(() => {
-    return PROJECTS.filter((p) => {
+    return allProjects.filter((p) => {
       // Primary status filter
       if (statusTab === 'ongoing' && !p.cats.includes('progress')) return false;
       if (statusTab === 'completed' && p.cats.includes('progress')) return false;
@@ -51,7 +69,7 @@ export function Projects({ go, subPath }) {
 
       return true;
     });
-  }, [statusTab, categoryFilter]);
+  }, [statusTab, categoryFilter, allProjects]);
 
   const matchQuery = (row) => !query || row.join(' ').toLowerCase().includes(query.toLowerCase());
 
@@ -81,7 +99,7 @@ export function Projects({ go, subPath }) {
             style={{ borderRadius: '6px', padding: '10px 20px', fontWeight: 600 }}
             onClick={() => handleStatusChange('all')}
           >
-            All Projects ({PROJECTS.length})
+            All Projects ({allProjects.length})
           </button>
           <button
             type="button"
@@ -89,7 +107,7 @@ export function Projects({ go, subPath }) {
             style={{ borderRadius: '6px', padding: '10px 20px', fontWeight: 600 }}
             onClick={() => handleStatusChange('ongoing')}
           >
-            On Going Projects ({PROJECTS.filter(p => p.cats.includes('progress')).length})
+            On Going Projects ({allProjects.filter(p => p.cats.includes('progress')).length})
           </button>
           <button
             type="button"
@@ -97,7 +115,7 @@ export function Projects({ go, subPath }) {
             style={{ borderRadius: '6px', padding: '10px 20px', fontWeight: 600 }}
             onClick={() => handleStatusChange('completed')}
           >
-            Completed Projects ({PROJECTS.filter(p => !p.cats.includes('progress')).length})
+            Completed Projects ({allProjects.filter(p => !p.cats.includes('progress')).length})
           </button>
         </div>
 
@@ -115,7 +133,7 @@ export function Projects({ go, subPath }) {
         </div>
 
         <p className="post-meta" style={{ marginBottom: 24 }}>
-          Showing {shownProjects.length} of {PROJECTS.length} projects · Click any project image to open the gallery slider.
+          Showing {shownProjects.length} of {allProjects.length} projects · Click any project image to open the gallery slider.
         </p>
 
         <div className="project-grid">

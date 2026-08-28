@@ -529,9 +529,9 @@ export function HSEPolicy({ go }) {
           />
         </Reveal>
         <Reveal delay="1">
-          <div className="cards">
+          <div className="cards" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', background: 'transparent', gap: '16px' }}>
             {HSE_STATS.map(([title, subtitle, desc]) => (
-              <article className="card" key={title}>
+              <article className="card" key={title} style={{ border: '1px solid var(--line)' }}>
                 <span className="num-tag" style={{ fontSize: '1rem', fontWeight: 'bold' }}>{subtitle}</span>
                 <h3>{title}</h3>
                 <p>{desc}</p>

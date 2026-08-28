@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { CSS } from './theme.js';
 import { Header } from './components/Header.jsx';
 import { Footer } from './components/Footer.jsx';
-import { About, Achievements, Admin, Blog, Career, Careers, Contact, Equipment, Events, Event, Home, HSEPolicy, Post, Projects, Services } from './pages.jsx';
+import { About, Achievements, Blog, Career, Careers, Contact, Equipment, Events, Event, Home, HSEPolicy, Post, Projects, Services } from './pages.jsx';
+import { ProjectAdmin } from './pages/ProjectAdmin.jsx';
 
 function currentPath() {
   const h = typeof window !== 'undefined' ? window.location.hash.replace(/^#/, '') : '';
@@ -50,7 +51,9 @@ export default function App() {
   else if (path === '/events' || path === '/event') page = <Events go={go} />;
   else if (path === '/hse' || path === '/hse-policy' || path === '/hsepolicy') page = <HSEPolicy go={go} />;
   else if (path === '/blog' || path === '/achievements') page = <Achievements go={go} />;
-  else if (path === '/admin') page = <Admin go={go} />;
+  else if (path === '/admin/new') page = <ProjectAdmin go={go} editId="new" />;
+  else if (path.startsWith('/admin/edit/')) page = <ProjectAdmin go={go} editId={path.replace('/admin/edit/', '')} />;
+  else if (path === '/admin') page = <ProjectAdmin go={go} />;
   else if (path === '/contact') page = <Contact go={go} />;
   else page = <Home go={go} />;
 

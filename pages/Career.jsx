@@ -170,9 +170,9 @@ export function Career({ go }) {
           />
         </Reveal>
         <Reveal delay="1">
-          <div className="cards">
+          <div className="cards" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', background: 'var(--paper2)', gap: '16px' }}>
             {CAREER_PERKS.map(([tag, title, text]) => (
-              <article className="card" key={title}>
+              <article className="card" key={title} style={{ border: '1px solid var(--line)' }}>
                 <span className="num-tag">{tag}</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
