@@ -84,9 +84,12 @@ p:last-child{margin-bottom:0}
 strong{font-weight:600}
 
 /* eyebrow: mono label with the rust marker bar from the printed profile */
-.eyebrow{
+.eyebrow, h1.eyebrow{
   font-family:var(--mono);
-  font-size:.72rem;
+  font-size:.74rem;
+  font-weight:700;
+  font-stretch:normal;
+  line-height:1.4;
   letter-spacing:.22em;
   text-transform:uppercase;
   color:var(--rust);
@@ -95,13 +98,13 @@ strong{font-weight:600}
   gap:.7rem;
   margin:0 0 1.1rem;
 }
-.eyebrow::before{
+.eyebrow::before, h1.eyebrow::before{
   content:"";
   width:26px;height:3px;
   background:var(--rust);
   flex:none;
 }
-.section--dark .eyebrow{color:var(--rust-2)}
+.section--dark .eyebrow, .section--dark h1.eyebrow{color:var(--rust-2)}
 
 /* ---------- layout ---------- */
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
@@ -223,10 +226,46 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
   pointer-events:none;
 }
 .hero-inner{position:relative;width:100%;padding-bottom:clamp(40px,6vw,84px)}
+.hero-header-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:.35em}
+.hero-header-row .hero-title-col h1{margin-bottom:0}
+.hero-pillars{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  text-align:right;
+  gap:6px;
+  padding-bottom:10px;
+  border-right:2px solid var(--rust);
+  padding-right:16px;
+  flex-shrink:0;
+}
+.hero-pillars span{
+  font-family:var(--display);
+  font-weight:700;
+  font-stretch:115%;
+  font-size:clamp(0.92rem,1.4vw,1.2rem);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#AEB5D6;
+  line-height:1.25;
+}
+.hero-pillars span:hover{color:var(--paper)}
 .hero h1{margin-bottom:.35em}
 .hero h1 .thin{display:block;font-weight:400;font-stretch:112%;color:#AEB5D6}
+.hero h1 .legacy{color:#E3E7EF}
 .hero p{max-width:56ch;color:#D3D7EA}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-bottom-row{display:flex;justify-content:space-between;align-items:center;gap:28px;margin-top:34px;flex-wrap:wrap}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:0}
+.hero-partner-logos{display:flex;align-items:center;gap:clamp(20px,3vw,44px);flex-wrap:wrap}
+.hero-partner-logo{
+  height:clamp(48px,5.5vw,72px);
+  width:auto;
+  max-width:clamp(140px,16vw,220px);
+  object-fit:contain;
+  filter:drop-shadow(0 4px 16px rgba(0,0,0,.45));
+  transition:transform .25s var(--ease),opacity .25s var(--ease);
+}
+.hero-partner-logo:hover{transform:translateY(-3px)}
 
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.is-in{opacity:1;transform:none}
@@ -237,14 +276,12 @@ body.has-hero .site-nav.is-stuck{background:rgba(11,13,32,.94);backdrop-filter:b
 
 /* ---------- stat strip ---------- */
 .stats{background:var(--ink);color:#fff;border-top:1px solid rgba(255,255,255,.08)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:clamp(24px,3vw,38px) 0;border-left:1px solid rgba(255,255,255,.1)}
+.stats-grid{display:flex;justify-content:center;align-items:center;margin-inline:auto;flex-wrap:wrap}
+.stat{flex:0 1 380px;text-align:center;padding:clamp(24px,3vw,38px) clamp(20px,3vw,36px);border-left:1px solid rgba(255,255,255,.1)}
 .stat:first-child{border-left:0}
 .stat .num{font-family:var(--display);font-weight:800;font-stretch:120%;font-size:clamp(2rem,4vw,3.2rem);line-height:1;display:block}
 .stat .num em{font-style:normal;color:var(--rust-2)}
-.stat .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#9AA2C4;margin-top:10px;display:block;padding-right:12px}
-.stats .stat{padding-left:clamp(16px,2vw,28px)}
-.stats .stat:first-child{padding-left:0}
+.stat .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#9AA2C4;margin-top:10px;display:block;padding-right:0}
 
 /* ---------- marquee (clients) ---------- */
 .marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--paper);padding-block:20px}
@@ -575,10 +612,8 @@ const COMPANY = {
 };
 
 const STATS = [
-  ['51', 'Years in civil construction'],
+  ['60+', 'Years in civil construction'],
   ['C-A', 'PEC category, no financial limit'],
-  ['385ft', 'Centerpoint, 28 storeys, Karachi'],
-  ['1.65M', 'Sq ft under way at Peace Apartments'],
 ];
 
 const MARQUEE = [
@@ -1024,7 +1059,7 @@ function formatDate(iso) {
    --------------------------------------------------------------- */
 
 function Eyebrow({ children }) {
-  return <p className="eyebrow">{children}</p>;
+  return <h1 className="eyebrow">{children}</h1>;
 }
 
 function Section({ tone = '', grid = false, id, children }) {
@@ -1198,16 +1233,31 @@ function Home({ go }) {
         </div>
         <div className="hero-wedge" />
         <div className="wrap hero-inner">
-          <Eyebrow>{COMPANY.former} · Karachi</Eyebrow>
-          <h1><span className="thin">New Chapter</span>Old Legacy</h1>
+          <div className="hero-header-row">
+            <div className="hero-title-col">
+              <h1><span className="thin">A New Chapter</span><span className="legacy">Old Legacy</span></h1>
+            </div>
+            <div className="hero-pillars">
+              <span>Builders</span>
+              <span>Contractors</span>
+              <span>Interior Decorators</span>
+            </div>
+          </div>
           <p className="lede">
             Fifty-one years of civil construction in Pakistan: high-rise towers, hospitals,
             campuses, five-star hotels, infrastructure and the interiors inside them —
             delivered under one contract by our own engineers, plant and crews.
           </p>
-          <div className="hero-actions">
-            <Btn variant="light" href="#/projects" onClick={go('/projects')}>See the projects <Arrow /></Btn>
-            <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Talk to our team</Btn>
+          <div className="hero-bottom-row">
+            <div className="hero-actions">
+              <Btn variant="light" href="#/projects" onClick={go('/projects')}>See the projects <Arrow /></Btn>
+              <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Talk to our team</Btn>
+            </div>
+            <div className="hero-partner-logos">
+              <img src="./images/Asconlogo.png" alt="Ascon" className="hero-partner-logo" />
+              <img src="./images/P2FLOGO.png" alt="P2F" className="hero-partner-logo" />
+              <img src="./images/AB&DLogo.png" alt="AB&D" className="hero-partner-logo" />
+            </div>
           </div>
         </div>
       </section>
@@ -2147,7 +2197,8 @@ function Admin({ go }) {
 
 const NAV = [
   ['/', 'Home'], ['/about', 'About'], ['/services', 'Services'], ['/projects', 'Projects'],
-  ['/equipment', 'Equipment'], ['/blog', 'Insights'], ['/contact', 'Contact'],
+  ['/equipment', 'Equipment'], ['/events', 'Events'], ['/careers', 'Careers'],
+  ['/blog', 'Achievements'], ['/contact', 'Contact'],
 ];
 
 function currentPath() {
@@ -2213,7 +2264,7 @@ export default function App() {
         <div className="wrap nav-inner">
           <a className="brand" href="#/" onClick={go('/')}>
             <img src={IMAGES.logoWhite} alt="ASENT" />
-            <span className="brand-tag">{COMPANY.tagline.map((t) => <span key={t}>{t}<br /></span>)}</span>
+            <span className="brand-tag">Formerly<br />Al-Shafi Enterprises</span>
           </a>
 
           <nav>
@@ -2232,7 +2283,15 @@ export default function App() {
           </nav>
 
           <div className="nav-cta">
-            <a className="btn btn--light btn--sm" href="#/contact" onClick={go('/contact')}>Request a proposal</a>
+            <a
+              className="btn btn--light btn--sm"
+              href="./ASENT Profile.pdf"
+              download="ASENT-Company-Profile.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download the company profile .
+            </a>
             <button
               className="nav-toggle" type="button" aria-expanded={menuOpen}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}

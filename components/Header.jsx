@@ -7,6 +7,8 @@ const NAV = [
   ['/services', 'Services'],
   ['/projects', 'Projects'],
   ['/equipment', 'Equipment'],
+  ['/events', 'Events'],
+  ['/careers', 'Careers'],
   ['/blog', 'Achievements'],
   ['/contact', 'Contact'],
 ];
@@ -18,7 +20,7 @@ export function Header({ path, go, stuck, menuOpen, setMenuOpen }) {
         <a className="brand" href="#/" onClick={go('/')}>
           <img src="./images/cropped-Logo-asent.png" alt="ASENT" />
           <span className="brand-tag">
-            {COMPANY.tagline.map((t) => <span key={t}>{t}<br /></span>)}
+            Formerly<br />Al-Shafi Enterprises
           </span>
         </a>
 
@@ -28,7 +30,9 @@ export function Header({ path, go, stuck, menuOpen, setMenuOpen }) {
               const isActive =
                 path === to ||
                 (to === '/projects' && path.startsWith('/projects')) ||
-                (to === '/blog' && path.startsWith('/post/'));
+                (to === '/blog' && (path === '/achievements' || path.startsWith('/post/'))) ||
+                (to === '/careers' && (path === '/career' || path === '/careers')) ||
+                (to === '/events' && (path === '/event' || path === '/events'));
               return (
                 <li key={to}>
                   <a
@@ -45,8 +49,14 @@ export function Header({ path, go, stuck, menuOpen, setMenuOpen }) {
         </nav>
 
         <div className="nav-cta">
-          <a className="btn btn--light btn--sm" href="#/contact" onClick={go('/contact')}>
-            Request a proposal
+          <a
+            className="btn btn--light btn--sm"
+            href="./ASENT Profile.pdf"
+            download="ASENT-Company-Profile.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Company Profile
           </a>
           <button
             className="nav-toggle"

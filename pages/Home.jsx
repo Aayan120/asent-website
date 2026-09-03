@@ -49,16 +49,31 @@ export function Home({ go }) {
         </div>
         <div className="hero-wedge" />
         <div className="wrap hero-inner">
-          <Eyebrow>{COMPANY.former} · Karachi</Eyebrow>
-          <h1><span className="thin">New Chapter</span>Old Legacy</h1>
+          <div className="hero-header-row">
+            <div className="hero-title-col">
+              <h1><span className="thin">A New Chapter</span><span className="legacy">Old Legacy</span></h1>
+            </div>
+            <div className="hero-pillars">
+              <span>Builders</span>
+              <span>Contractors</span>
+              <span>Interior Decorators</span>
+            </div>
+          </div>
           <p className="lede">
             Sixty-plus years of civil construction in Pakistan: high-rise towers, hospitals,
             campuses, five-star hotels, infrastructure and the interiors inside them —
             delivered under one contract by our own engineers, plant and crews.
           </p>
-          <div className="hero-actions">
-            <Btn variant="light" href="#/projects" onClick={go('/projects')}>See the projects <Arrow /></Btn>
-            <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Talk to our team</Btn>
+          <div className="hero-bottom-row">
+            <div className="hero-actions">
+              <Btn variant="light" href="#/projects" onClick={go('/projects')}>See the projects <Arrow /></Btn>
+              <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Talk to our team</Btn>
+            </div>
+            <div className="hero-partner-logos">
+              <img src="./images/asconBD.png" alt="Ascon" className="hero-partner-logo" />
+              <img src="./images/p2f.png" alt="P2F" className="hero-partner-logo" />
+              <img src="./images/ascon.png" alt="AB&D" className="hero-partner-logo" />
+            </div>
           </div>
         </div>
       </section>

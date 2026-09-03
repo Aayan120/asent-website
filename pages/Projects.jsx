@@ -87,7 +87,7 @@ export function Projects({ go, subPath }) {
     <>
       <PageHead
         go={go} crumb="Projects" title="Building Since 1966"
-        lede="Towers, hospitals, campuses, hotels, banks and infrastructure — built from Karachi and Gwadar to Sukkur, Muzaffargarh, Lahore and Gilgit-Baltistan."
+        lede="Towers, hospitals, campuses, hotels, banks and infrastructure — built from Karachi and Gwadar to Sukkur, Muzaffargarh, Lahore and Gilgit-Baltistan.100+ projects completed and 15+ projects are on going."
       />
 
       <Section>
@@ -99,7 +99,7 @@ export function Projects({ go, subPath }) {
             style={{ borderRadius: '6px', padding: '10px 20px', fontWeight: 600 }}
             onClick={() => handleStatusChange('all')}
           >
-            All Projects ({allProjects.length})
+            All Projects
           </button>
           <button
             type="button"
@@ -107,7 +107,7 @@ export function Projects({ go, subPath }) {
             style={{ borderRadius: '6px', padding: '10px 20px', fontWeight: 600 }}
             onClick={() => handleStatusChange('ongoing')}
           >
-            On Going Projects ({allProjects.filter(p => p.cats.includes('progress')).length})
+            On Going Projects
           </button>
           <button
             type="button"
@@ -115,7 +115,7 @@ export function Projects({ go, subPath }) {
             style={{ borderRadius: '6px', padding: '10px 20px', fontWeight: 600 }}
             onClick={() => handleStatusChange('completed')}
           >
-            Completed Projects ({allProjects.filter(p => !p.cats.includes('progress')).length})
+            Completed Projects
           </button>
         </div>
 

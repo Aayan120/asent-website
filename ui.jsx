@@ -6,7 +6,7 @@ import { IMAGES } from './images.js';
    --------------------------------------------------------------- */
 
 export function Eyebrow({ children }) {
-  return <p className="eyebrow">{children}</p>;
+  return <h1 className="eyebrow">{children}</h1>;
 }
 
 export function Section({ tone = '', grid = false, id, children }) {

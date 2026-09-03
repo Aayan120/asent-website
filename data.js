@@ -16,8 +16,6 @@ export const COMPANY = {
 export const STATS = [
   ['60+', 'Years in civil construction'],
   ['C-A', 'PEC category, no financial limit'],
-  ['385ft', 'Centerpoint, 28 storeys, Karachi'],
-  ['1.65M', 'Sq ft under way at Peace Apartments'],
 ];
 
 export const MARQUEE = [
@@ -533,7 +531,7 @@ Reinforcing bar cutting machines|18|Chinese / UK|Up to 1¼"
 Steel bending machine|9|Chinese|Up to 38 mm
 Roller — mechanical|3|Bomag, Germany|4 ton
 Roller — hydraulic|2|Bomag / Rimas|8 ton
-Crane|1|Chinese|180 m`)],
+Tower Crane|1|Zoomlion|180 m`)],
   ['Pumps', ['Name', 'Quantity', 'Make / model', 'Size / capacity'], rows(`
 Concrete pump, truck loaded (remote control)|2|Sany / Push Master|38 m, 48 m, 52 m
 Concrete pump, stationary type|4|Sany / Elba|45, 60, 80 m³/hr
@@ -567,7 +565,7 @@ Allied construction material|Held in quantity|Local|Various`)],
 
 export const OFFICES = [
   ['Head office — Karachi', 'Building No. 7-C, Old Sunset Boulevard,\nPhase II, DHA, Karachi', '+92-21-35310364-66', '+922135310364'],
-  ['Sub office — Karachi', 'Plot No. 388/1 Lasbella,\nGarden West, Karachi', '+92-21-34120978', '+922134120978'],
+  ['Factory  — Karachi', 'Plot No. 388/1 Lasbella,\nGarden West, Karachi', '+92-21-34120978', '+922134120978'],
   ['Regional office — Gilgit', 'Near GB Autos, opposite Supreme Appellate Court,\nNoor Colony, Jutial, Gilgit', '', ''],
 ];
 
