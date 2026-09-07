@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Arrow, Btn, Eyebrow, PageHead, Reveal, Section, SectionHead } from '../ui.jsx';
+import { eventStore } from '../eventStore.js';
 
 /* =========================================================================
    EVENTS & EXHIBITIONS DATA
@@ -92,13 +93,20 @@ export const EVENTS_DATA = [
    EVENTS PAGE COMPONENT
    ========================================================================= */
 export function Events({ go }) {
+  const [events, setEvents] = useState(EVENTS_DATA);
   const [activeTab, setActiveTab] = useState('All');
   const [selectedEvent, setSelectedEvent] = useState(null);
 
+  useEffect(() => {
+    eventStore.all().then((data) => {
+      if (data && data.length) setEvents(data);
+    });
+  }, []);
+
   const tabs = ['All', 'Upcoming', 'Past'];
   const filteredEvents = activeTab === 'All' 
-    ? EVENTS_DATA 
-    : EVENTS_DATA.filter(ev => ev.status === activeTab);
+    ? events 
+    : events.filter(ev => ev.status === activeTab);
 
   return (
     <>
@@ -136,7 +144,7 @@ export function Events({ go }) {
                 className={`btn btn--sm ${activeTab === tab ? 'btn--dark' : 'btn--ghost'}`}
                 style={{ borderRadius: 6, padding: '8px 18px', fontSize: '0.85rem' }}
               >
-                {tab} Events ({tab === 'All' ? EVENTS_DATA.length : EVENTS_DATA.filter(e => e.status === tab).length})
+                {tab} Events ({tab === 'All' ? events.length : events.filter(e => e.status === tab).length})
               </button>
             ))}
           </div>

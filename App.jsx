@@ -51,9 +51,7 @@ export default function App() {
   else if (path === '/events' || path === '/event') page = <Events go={go} />;
   else if (path === '/hse' || path === '/hse-policy' || path === '/hsepolicy') page = <HSEPolicy go={go} />;
   else if (path === '/blog' || path === '/achievements') page = <Achievements go={go} />;
-  else if (path === '/admin/new') page = <ProjectAdmin go={go} editId="new" />;
-  else if (path.startsWith('/admin/edit/')) page = <ProjectAdmin go={go} editId={path.replace('/admin/edit/', '')} />;
-  else if (path === '/admin') page = <ProjectAdmin go={go} />;
+  else if (path.startsWith('/admin')) page = <ProjectAdmin go={go} path={path} />;
   else if (path === '/contact') page = <Contact go={go} />;
   else page = <Home go={go} />;
 

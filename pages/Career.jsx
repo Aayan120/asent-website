@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Arrow, Btn, Eyebrow, FeatureList, PageHead, Reveal, Section, SectionHead, Split } from '../ui.jsx';
+import { careerStore } from '../careerStore.js';
 
 /* =========================================================================
    CAREERS & JOB OPENINGS DATA
@@ -144,11 +145,18 @@ export const CAREER_PERKS = [
    CAREER PAGE COMPONENT
    ========================================================================= */
 export function Career({ go }) {
+  const [jobs, setJobs] = useState(CAREERS_DATA);
   const [selectedJob, setSelectedJob] = useState(null);
   const [filterDept, setFilterDept] = useState('All');
 
-  const departments = ['All', ...new Set(CAREERS_DATA.map(j => j.department))];
-  const filteredJobs = filterDept === 'All' ? CAREERS_DATA : CAREERS_DATA.filter(j => j.department === filterDept);
+  useEffect(() => {
+    careerStore.all().then((data) => {
+      if (data && data.length) setJobs(data);
+    });
+  }, []);
+
+  const departments = ['All', ...new Set(jobs.map(j => j.department).filter(Boolean))];
+  const filteredJobs = filterDept === 'All' ? jobs : jobs.filter(j => j.department === filterDept);
 
   return (
     <>

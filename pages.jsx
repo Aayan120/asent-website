@@ -8,5 +8,6 @@ export { Achievements, Insights, Blog, Post } from './pages/Achievements.jsx';
 export { Career, Careers } from './pages/Career.jsx';
 export { Events, Event } from './pages/Events.jsx';
 export { HSEPolicy, HsePolicy } from './pages/HSEPolicy.jsx';
+export { ProjectAdmin, AdminPanel } from './pages/ProjectAdmin.jsx';
 
 
