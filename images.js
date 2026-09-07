@@ -43,6 +43,9 @@ export const IMAGES = {
   "cert-ibasukkur": "./images/HSEcertificates/IBASUKKUR.png",
   "cert-kpt": "./images/HSEcertificates/KPT.png",
   "cert-lnh": "./images/HSEcertificates/LNH.png",
-  "cert-usaid": "./images/HSEcertificates/USAID.png"
+  "cert-usaid": "./images/HSEcertificates/USAID.png",
+  "asconBD": "./images/asconBD.png",
+  "p2f": "./images/p2f.png",
+  "ascon": "./images/ascon.png"
 };
 

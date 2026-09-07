@@ -70,9 +70,39 @@ export function Home({ go }) {
               <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Talk to our team</Btn>
             </div>
             <div className="hero-partner-logos">
-              <img src="./images/asconBD.png" alt="Ascon" className="hero-partner-logo" />
-              <img src="./images/p2f.png" alt="P2F" className="hero-partner-logo" />
-              <img src="./images/ascon.png" alt="AB&D" className="hero-partner-logo" />
+              <img
+                src={IMAGES['asconBD'] || './images/asconBD.png'}
+                alt="Ascon Builders & Developers"
+                className="hero-partner-logo"
+                onError={(e) => {
+                  if (!e.target.dataset.tried) {
+                    e.target.dataset.tried = '1';
+                    e.target.src = './images/AsconBD.png';
+                  }
+                }}
+              />
+              <img
+                src={IMAGES['p2f'] || './images/p2f.png'}
+                alt="Plinth 2 Finish"
+                className="hero-partner-logo"
+                onError={(e) => {
+                  if (!e.target.dataset.tried) {
+                    e.target.dataset.tried = '1';
+                    e.target.src = './images/P2FLOGO.png';
+                  }
+                }}
+              />
+              <img
+                src={IMAGES['ascon'] || './images/ascon.png'}
+                alt="Ascon"
+                className="hero-partner-logo"
+                onError={(e) => {
+                  if (!e.target.dataset.tried) {
+                    e.target.dataset.tried = '1';
+                    e.target.src = './images/Asconlogo.png';
+                  }
+                }}
+              />
             </div>
           </div>
         </div>
