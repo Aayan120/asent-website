@@ -1083,4 +1083,151 @@ img{background:var(--paper-2)}
   .admin-row-2{grid-template-columns:1fr}
   .admin-img-picker-controls{flex-direction:column;align-items:stretch}
 }
+
+/* ================================================================
+   IMAGE CROP MODAL
+   ================================================================ */
+
+/* ---- Overlay ---- */
+.crop-modal-overlay{
+  position:fixed;inset:0;background:rgba(11,13,32,.7);
+  display:flex;align-items:center;justify-content:center;
+  z-index:10001;padding:20px;backdrop-filter:blur(6px);
+  animation:cropFadeIn .2s ease;
+}
+@keyframes cropFadeIn{from{opacity:0}to{opacity:1}}
+
+/* ---- Modal Container ---- */
+.crop-modal{
+  background:var(--white);border-radius:16px;
+  max-width:860px;width:100%;max-height:90vh;
+  display:flex;flex-direction:column;
+  box-shadow:0 24px 80px rgba(0,0,0,.25);
+  overflow:hidden;
+  animation:cropSlideIn .25s ease;
+}
+@keyframes cropSlideIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+
+/* ---- Header ---- */
+.crop-modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 24px;border-bottom:1px solid var(--line);
+}
+.crop-modal-header h3{
+  margin:0;font-size:1.1rem;font-weight:700;
+  text-transform:none;letter-spacing:0;
+  color:var(--navy);
+}
+.crop-modal-close{
+  background:none;border:none;cursor:pointer;
+  font-size:1.2rem;color:var(--steel);
+  width:32px;height:32px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.crop-modal-close:hover{background:var(--paper);color:var(--navy)}
+
+/* ---- Canvas Wrap ---- */
+.crop-canvas-wrap{
+  position:relative;flex:1;min-height:340px;max-height:60vh;
+  background:#1a1a2e;overflow:hidden;
+  touch-action:none;
+}
+
+/* ---- Loading ---- */
+.crop-modal-loading{
+  display:flex;align-items:center;justify-content:center;
+  height:200px;color:var(--steel);font-size:1rem;
+}
+
+/* ---- Crop Selection ---- */
+.crop-selection{
+  position:absolute;
+  border:2px solid #fff;
+  box-shadow:0 0 0 9999px rgba(0,0,0,0);
+  cursor:move;
+  z-index:2;
+  touch-action:none;
+}
+
+/* ---- Grid Lines (Rule of Thirds) ---- */
+.crop-grid{
+  position:absolute;inset:0;pointer-events:none;
+}
+.crop-grid-line{
+  position:absolute;
+  background:rgba(255,255,255,.25);
+}
+.crop-grid-h{
+  left:0;right:0;height:1px;
+}
+.crop-grid-v{
+  top:0;bottom:0;width:1px;
+}
+
+/* ---- Corner Handles ---- */
+.crop-handle{
+  position:absolute;width:18px;height:18px;
+  background:#fff;border:2px solid var(--navy);
+  border-radius:3px;z-index:3;
+  touch-action:none;
+  transition:transform .1s,box-shadow .1s;
+}
+.crop-handle:hover{
+  transform:scale(1.2);
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+.crop-handle-nw{top:-9px;left:-9px;cursor:nw-resize}
+.crop-handle-ne{top:-9px;right:-9px;cursor:ne-resize}
+.crop-handle-sw{bottom:-9px;left:-9px;cursor:sw-resize}
+.crop-handle-se{bottom:-9px;right:-9px;cursor:se-resize}
+
+/* ---- Dimension Label ---- */
+.crop-dim-label{
+  position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);
+  background:var(--navy);color:#fff;
+  padding:3px 10px;border-radius:4px;
+  font-size:.72rem;font-weight:600;
+  white-space:nowrap;pointer-events:none;
+  opacity:.85;
+}
+
+/* ---- Toolbar ---- */
+.crop-toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;border-top:1px solid var(--line);
+  gap:12px;flex-wrap:wrap;
+  background:var(--paper);
+}
+.crop-ratios{
+  display:flex;gap:6px;flex-wrap:wrap;
+}
+.crop-ratio-btn{
+  background:var(--white);border:1.5px solid var(--line);
+  border-radius:8px;padding:6px 14px;
+  font-size:.82rem;font-weight:600;
+  cursor:pointer;color:var(--steel);
+  transition:all .15s;
+}
+.crop-ratio-btn:hover{
+  border-color:var(--navy);color:var(--navy);
+}
+.crop-ratio-btn--active{
+  background:var(--navy);color:#fff;
+  border-color:var(--navy);
+}
+.crop-actions{
+  display:flex;gap:8px;
+}
+
+/* ---- Responsive ---- */
+@media(max-width:600px){
+  .crop-modal{max-width:100%;border-radius:12px}
+  .crop-canvas-wrap{min-height:240px;max-height:50vh}
+  .crop-toolbar{flex-direction:column;align-items:stretch}
+  .crop-ratios{justify-content:center}
+  .crop-actions{justify-content:center}
+  .crop-modal-header{padding:14px 18px}
+  .crop-toolbar{padding:14px 18px}
+}
 `;

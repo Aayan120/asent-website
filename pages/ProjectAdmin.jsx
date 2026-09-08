@@ -92,6 +92,351 @@ function Toast({ message, type, onClose }) {
   );
 }
 
+/* ---------- Image Crop Modal ---------- */
+function ImageCropModal({ file, onConfirm, onUseOriginal, onCancel }) {
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const [imgSrc, setImgSrc] = useState(null);
+  const [imgNatural, setImgNatural] = useState({ w: 0, h: 0 });
+  const [display, setDisplay] = useState({ w: 0, h: 0, offsetX: 0, offsetY: 0 });
+  const [crop, setCrop] = useState({ x: 0, y: 0, w: 0, h: 0 });
+  const [ratio, setRatio] = useState('free');
+  const [dragging, setDragging] = useState(null); // null | 'move' | 'nw' | 'ne' | 'sw' | 'se'
+  const dragStart = useRef({ mx: 0, my: 0, crop: null });
+
+  // Load image preview
+  useEffect(() => {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => setImgSrc(e.target.result);
+    reader.readAsDataURL(file);
+  }, [file]);
+
+  // Once image loads, compute display dimensions and default crop
+  const handleImgLoad = useCallback((e) => {
+    const img = e.target;
+    const natW = img.naturalWidth;
+    const natH = img.naturalHeight;
+    setImgNatural({ w: natW, h: natH });
+
+    const container = containerRef.current;
+    if (!container) return;
+    const cW = container.clientWidth;
+    const cH = container.clientHeight;
+
+    // Fit image inside container
+    const scale = Math.min(cW / natW, cH / natH, 1);
+    const dW = Math.round(natW * scale);
+    const dH = Math.round(natH * scale);
+    const offX = Math.round((cW - dW) / 2);
+    const offY = Math.round((cH - dH) / 2);
+    setDisplay({ w: dW, h: dH, offsetX: offX, offsetY: offY });
+
+    // Default crop = 80% centered
+    const margin = 0.1;
+    setCrop({
+      x: Math.round(dW * margin),
+      y: Math.round(dH * margin),
+      w: Math.round(dW * (1 - 2 * margin)),
+      h: Math.round(dH * (1 - 2 * margin)),
+    });
+  }, []);
+
+  // Clamp crop to image bounds
+  const clampCrop = useCallback((c) => {
+    let { x, y, w, h } = c;
+    const minSize = 20;
+    w = Math.max(w, minSize);
+    h = Math.max(h, minSize);
+    w = Math.min(w, display.w);
+    h = Math.min(h, display.h);
+    x = Math.max(0, Math.min(x, display.w - w));
+    y = Math.max(0, Math.min(y, display.h - h));
+    return { x, y, w, h };
+  }, [display]);
+
+  // Apply aspect ratio
+  const applyRatio = useCallback((newRatio, currentCrop) => {
+    if (newRatio === 'free') return currentCrop;
+    const ratios = { '16:9': 16 / 9, '4:3': 4 / 3, '1:1': 1, '3:2': 3 / 2 };
+    const r = ratios[newRatio];
+    if (!r) return currentCrop;
+
+    let { x, y, w, h } = currentCrop;
+    // Adjust height to match ratio
+    const newH = Math.round(w / r);
+    if (newH <= display.h) {
+      h = newH;
+    } else {
+      h = display.h;
+      w = Math.round(h * r);
+    }
+    return clampCrop({ x, y, w, h });
+  }, [display, clampCrop]);
+
+  const handleRatioChange = (newRatio) => {
+    setRatio(newRatio);
+    setCrop((prev) => applyRatio(newRatio, prev));
+  };
+
+  // Pointer down on crop region or handles
+  const handlePointerDown = useCallback((e, type) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(type);
+    dragStart.current = { mx: e.clientX, my: e.clientY, crop: { ...crop } };
+    
+    const onMove = (ev) => {
+      const dx = ev.clientX - dragStart.current.mx;
+      const dy = ev.clientY - dragStart.current.my;
+      const orig = dragStart.current.crop;
+
+      let newCrop;
+      if (type === 'move') {
+        newCrop = { ...orig, x: orig.x + dx, y: orig.y + dy };
+      } else {
+        // Corner resize
+        let nx = orig.x, ny = orig.y, nw = orig.w, nh = orig.h;
+        if (type === 'se') { nw = orig.w + dx; nh = orig.h + dy; }
+        if (type === 'sw') { nx = orig.x + dx; nw = orig.w - dx; nh = orig.h + dy; }
+        if (type === 'ne') { nw = orig.w + dx; ny = orig.y + dy; nh = orig.h - dy; }
+        if (type === 'nw') { nx = orig.x + dx; ny = orig.y + dy; nw = orig.w - dx; nh = orig.h - dy; }
+
+        // Enforce aspect ratio during resize
+        if (ratio !== 'free') {
+          const ratios = { '16:9': 16 / 9, '4:3': 4 / 3, '1:1': 1, '3:2': 3 / 2 };
+          const r = ratios[ratio];
+          if (r) {
+            if (type === 'se' || type === 'ne') {
+              nh = Math.round(nw / r);
+              if (type === 'ne') ny = orig.y + orig.h - nh;
+            } else {
+              nh = Math.round(nw / r);
+              if (type === 'nw') ny = orig.y + orig.h - nh;
+            }
+          }
+        }
+        newCrop = { x: nx, y: ny, w: nw, h: nh };
+      }
+
+      setCrop(clampCrop(newCrop));
+    };
+
+    const onUp = () => {
+      setDragging(null);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+    };
+
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }, [crop, ratio, clampCrop]);
+
+  // Create new click-to-draw crop area
+  const handleContainerPointerDown = useCallback((e) => {
+    if (dragging) return;
+    const container = containerRef.current;
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    const startX = e.clientX - rect.left - display.offsetX;
+    const startY = e.clientY - rect.top - display.offsetY;
+    
+    // Only allow starting within image bounds
+    if (startX < 0 || startY < 0 || startX > display.w || startY > display.h) return;
+    
+    dragStart.current = { mx: e.clientX, my: e.clientY, startX, startY };
+    
+    const onMove = (ev) => {
+      const curX = ev.clientX - rect.left - display.offsetX;
+      const curY = ev.clientY - rect.top - display.offsetY;
+      const x = Math.min(startX, curX);
+      const y = Math.min(startY, curY);
+      const w = Math.abs(curX - startX);
+      const h = Math.abs(curY - startY);
+      
+      let newCrop = { x, y, w, h };
+      if (ratio !== 'free') {
+        const ratios = { '16:9': 16 / 9, '4:3': 4 / 3, '1:1': 1, '3:2': 3 / 2 };
+        const r = ratios[ratio];
+        if (r) newCrop.h = Math.round(newCrop.w / r);
+      }
+      setCrop(clampCrop(newCrop));
+    };
+
+    const onUp = () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+    };
+
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+  }, [display, dragging, ratio, clampCrop]);
+
+  // Crop and export
+  const handleCrop = useCallback(() => {
+    if (!imgSrc || !imgNatural.w) return;
+    
+    const img = new Image();
+    img.onload = () => {
+      // Convert display-space crop to natural-space
+      const scaleX = imgNatural.w / display.w;
+      const scaleY = imgNatural.h / display.h;
+      const sx = Math.round(crop.x * scaleX);
+      const sy = Math.round(crop.y * scaleY);
+      const sw = Math.round(crop.w * scaleX);
+      const sh = Math.round(crop.h * scaleY);
+
+      const canvas = document.createElement('canvas');
+      canvas.width = sw;
+      canvas.height = sh;
+      const ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
+
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            // Create a File-like object so uploadImage can read .name
+            const croppedFile = new File([blob], file.name || 'cropped.jpg', { type: 'image/jpeg' });
+            onConfirm(croppedFile);
+          }
+        },
+        'image/jpeg',
+        0.92
+      );
+    };
+    img.src = imgSrc;
+  }, [imgSrc, imgNatural, display, crop, file, onConfirm]);
+
+  const RATIOS = ['free', '16:9', '4:3', '1:1', '3:2'];
+
+  if (!imgSrc) {
+    return (
+      <div className="crop-modal-overlay">
+        <div className="crop-modal">
+          <div className="crop-modal-loading">Loading image…</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="crop-modal-overlay" onClick={onCancel}>
+      <div className="crop-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="crop-modal-header">
+          <h3>✂️ Crop & Resize Image</h3>
+          <button type="button" className="crop-modal-close" onClick={onCancel} title="Close">✕</button>
+        </div>
+
+        <div
+          className="crop-canvas-wrap"
+          ref={containerRef}
+          onPointerDown={handleContainerPointerDown}
+          style={{ cursor: dragging ? 'grabbing' : 'crosshair' }}
+        >
+          {/* The actual image */}
+          <img
+            src={imgSrc}
+            alt="Crop preview"
+            onLoad={handleImgLoad}
+            className="crop-source-img"
+            style={{
+              position: 'absolute',
+              left: display.offsetX,
+              top: display.offsetY,
+              width: display.w || 'auto',
+              height: display.h || 'auto',
+              pointerEvents: 'none',
+              userSelect: 'none',
+            }}
+            draggable={false}
+          />
+
+          {/* Dark overlay outside crop */}
+          {display.w > 0 && (
+            <svg
+              style={{
+                position: 'absolute',
+                left: display.offsetX,
+                top: display.offsetY,
+                width: display.w,
+                height: display.h,
+                pointerEvents: 'none',
+              }}
+            >
+              <defs>
+                <mask id="crop-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <rect x={crop.x} y={crop.y} width={crop.w} height={crop.h} fill="black" />
+                </mask>
+              </defs>
+              <rect x="0" y="0" width="100%" height="100%" fill="rgba(0,0,0,0.55)" mask="url(#crop-mask)" />
+            </svg>
+          )}
+
+          {/* Crop selection rectangle */}
+          {display.w > 0 && (
+            <div
+              className="crop-selection"
+              style={{
+                left: display.offsetX + crop.x,
+                top: display.offsetY + crop.y,
+                width: crop.w,
+                height: crop.h,
+              }}
+              onPointerDown={(e) => handlePointerDown(e, 'move')}
+            >
+              {/* Grid lines (rule of thirds) */}
+              <div className="crop-grid">
+                <div className="crop-grid-line crop-grid-h" style={{ top: '33.33%' }} />
+                <div className="crop-grid-line crop-grid-h" style={{ top: '66.66%' }} />
+                <div className="crop-grid-line crop-grid-v" style={{ left: '33.33%' }} />
+                <div className="crop-grid-line crop-grid-v" style={{ left: '66.66%' }} />
+              </div>
+
+              {/* Corner handles */}
+              <div className="crop-handle crop-handle-nw" onPointerDown={(e) => handlePointerDown(e, 'nw')} />
+              <div className="crop-handle crop-handle-ne" onPointerDown={(e) => handlePointerDown(e, 'ne')} />
+              <div className="crop-handle crop-handle-sw" onPointerDown={(e) => handlePointerDown(e, 'sw')} />
+              <div className="crop-handle crop-handle-se" onPointerDown={(e) => handlePointerDown(e, 'se')} />
+
+              {/* Dimension label */}
+              <div className="crop-dim-label">
+                {Math.round(crop.w * (imgNatural.w / display.w))} × {Math.round(crop.h * (imgNatural.h / display.h))}px
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Toolbar */}
+        <div className="crop-toolbar">
+          <div className="crop-ratios">
+            {RATIOS.map((r) => (
+              <button
+                key={r}
+                type="button"
+                className={`crop-ratio-btn ${ratio === r ? 'crop-ratio-btn--active' : ''}`}
+                onClick={() => handleRatioChange(r)}
+              >
+                {r === 'free' ? '⛶ Free' : r}
+              </button>
+            ))}
+          </div>
+          <div className="crop-actions">
+            <button type="button" className="btn btn--outline btn--sm" onClick={() => onUseOriginal(file)}>
+              📐 Use Full Image
+            </button>
+            <button type="button" className="btn btn--primary btn--sm" onClick={handleCrop}>
+              ✂️ Crop & Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ---------- Dynamic String List Editor (Responsibilities / Requirements / Highlights) ---------- */
 function DynamicListEditor({ label, items = [], onChange, placeholder = 'Add an item…', hint }) {
   const [val, setVal] = useState('');
@@ -188,15 +533,22 @@ function DynamicListEditor({ label, items = [], onChange, placeholder = 'Add an 
   );
 }
 
-/* ---------- Image Picker ---------- */
+/* ---------- Image Picker (with Crop Modal) ---------- */
 function ImagePicker({ value, onChange, label }) {
   const inputRef = useRef(null);
   const [uploading, setUploading] = useState(false);
+  const [cropFile, setCropFile] = useState(null);
   const resolved = projectStore.resolveImage(value);
 
-  const handleFile = async (e) => {
+  const handleFileSelected = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    setCropFile(file);
+    if (inputRef.current) inputRef.current.value = '';
+  };
+
+  const doUpload = async (file) => {
+    setCropFile(null);
     setUploading(true);
     try {
       const url = await projectStore.uploadImage(file);
@@ -205,7 +557,6 @@ function ImagePicker({ value, onChange, label }) {
       console.error('Image upload failed:', err);
     } finally {
       setUploading(false);
-      if (inputRef.current) inputRef.current.value = '';
     }
   };
 
@@ -238,18 +589,31 @@ function ImagePicker({ value, onChange, label }) {
         >
           {uploading ? 'Processing…' : 'Upload New'}
         </button>
-        <input ref={inputRef} type="file" accept="image/*" onChange={handleFile} hidden />
+        <input ref={inputRef} type="file" accept="image/*" onChange={handleFileSelected} hidden />
       </div>
+
+      {/* Crop Modal */}
+      {cropFile && (
+        <ImageCropModal
+          file={cropFile}
+          onConfirm={(croppedFile) => doUpload(croppedFile)}
+          onUseOriginal={(originalFile) => doUpload(originalFile)}
+          onCancel={() => setCropFile(null)}
+        />
+      )}
     </div>
   );
 }
 
-/* ---------- Gallery Manager ---------- */
+/* ---------- Gallery Manager (with Crop Modal) ---------- */
 function GalleryManager({ gallery = [], onChange, defaultImg }) {
   const fileInputRef = useRef(null);
   const replaceInputRef = useRef(null);
   const [replaceIdx, setReplaceIdx] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [cropFile, setCropFile] = useState(null);
+  const [cropMode, setCropMode] = useState(null); // 'add' | 'replace'
+  const [pendingFiles, setPendingFiles] = useState([]); // queue for multi-file adds
   const imageKeys = projectStore.getImageKeys();
 
   const initFromThumbnail = () => {
@@ -257,34 +621,60 @@ function GalleryManager({ gallery = [], onChange, defaultImg }) {
     onChange([defaultImg, defaultImg, defaultImg, defaultImg]);
   };
 
-  const handleAddFiles = async (e) => {
+  // Multi-file add: open crop modal one file at a time
+  const handleAddFiles = (e) => {
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
+    if (fileInputRef.current) fileInputRef.current.value = '';
+    // Queue all files and start with the first one
+    setPendingFiles(files.slice(1));
+    setCropMode('add');
+    setCropFile(files[0]);
+  };
+
+  const handleCropConfirmAdd = async (croppedFile) => {
+    setCropFile(null);
     setUploading(true);
     try {
-      const newUrls = await Promise.all(
-        files.map((file) => projectStore.uploadImage(file))
-      );
-      onChange([...gallery, ...newUrls.filter(Boolean)]);
+      const url = await projectStore.uploadImage(croppedFile);
+      if (url) onChange([...gallery, url]);
     } catch (err) {
       console.error('Gallery add error:', err);
     } finally {
       setUploading(false);
-      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+    // Process next file in queue
+    if (pendingFiles.length > 0) {
+      const [next, ...rest] = pendingFiles;
+      setPendingFiles(rest);
+      setCropFile(next);
+      setCropMode('add');
     }
   };
 
+  const handleUseOriginalAdd = async (file) => {
+    await handleCropConfirmAdd(file);
+  };
+
+  // Replace flow
   const triggerReplace = (idx) => {
     setReplaceIdx(idx);
     replaceInputRef.current?.click();
   };
 
-  const handleReplaceFile = async (e) => {
+  const handleReplaceFileSelected = (e) => {
     const file = e.target.files?.[0];
     if (!file || replaceIdx === null) return;
+    if (replaceInputRef.current) replaceInputRef.current.value = '';
+    setCropMode('replace');
+    setCropFile(file);
+  };
+
+  const handleCropConfirmReplace = async (croppedFile) => {
+    setCropFile(null);
     setUploading(true);
     try {
-      const url = await projectStore.uploadImage(file);
+      const url = await projectStore.uploadImage(croppedFile);
       if (url) {
         const next = [...gallery];
         next[replaceIdx] = url;
@@ -295,8 +685,18 @@ function GalleryManager({ gallery = [], onChange, defaultImg }) {
     } finally {
       setUploading(false);
       setReplaceIdx(null);
-      if (replaceInputRef.current) replaceInputRef.current.value = '';
     }
+  };
+
+  const handleUseOriginalReplace = async (file) => {
+    await handleCropConfirmReplace(file);
+  };
+
+  const handleCropCancel = () => {
+    setCropFile(null);
+    setCropMode(null);
+    setPendingFiles([]);
+    setReplaceIdx(null);
   };
 
   const handleSelectAssetReplace = (idx, assetKey) => {
@@ -402,7 +802,7 @@ function GalleryManager({ gallery = [], onChange, defaultImg }) {
         </div>
       )}
 
-      <input ref={replaceInputRef} type="file" accept="image/*" onChange={handleReplaceFile} hidden />
+      <input ref={replaceInputRef} type="file" accept="image/*" onChange={handleReplaceFileSelected} hidden />
 
       <div style={{ marginTop: 16, display: 'flex', gap: 10, alignItems: 'center' }}>
         <button
@@ -415,6 +815,24 @@ function GalleryManager({ gallery = [], onChange, defaultImg }) {
         <input ref={fileInputRef} type="file" accept="image/*" multiple onChange={handleAddFiles} hidden />
         <span className="form-hint">You can select multiple images at once.</span>
       </div>
+
+      {/* Crop Modal for Gallery */}
+      {cropFile && cropMode === 'add' && (
+        <ImageCropModal
+          file={cropFile}
+          onConfirm={handleCropConfirmAdd}
+          onUseOriginal={handleUseOriginalAdd}
+          onCancel={handleCropCancel}
+        />
+      )}
+      {cropFile && cropMode === 'replace' && (
+        <ImageCropModal
+          file={cropFile}
+          onConfirm={handleCropConfirmReplace}
+          onUseOriginal={handleUseOriginalReplace}
+          onCancel={handleCropCancel}
+        />
+      )}
     </div>
   );
 }
