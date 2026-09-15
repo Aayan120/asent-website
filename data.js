@@ -4,7 +4,7 @@ const rows = (s) => s.trim().split('\n').map((r) => r.split('|').map((c) => c.tr
 export const COMPANY = {
   name: 'ASENT',
   former: 'Formerly Al-Shafi Enterprises',
-  tagline: ['Builders', 'Contractors', 'Interior Decorators'],
+  tagline: ['Builders', 'Contractors', 'Interior Decorators', 'Turnkey Solutions'],
   email: 'info@asent.com.pk',
   site: 'www.asent.com.pk',
   phone: '+92-21-35310364-66',
@@ -16,6 +16,8 @@ export const COMPANY = {
 export const STATS = [
   ['60+', 'Years in civil construction'],
   ['C-A', 'PEC category, no financial limit'],
+  ['1000+', 'Employees'],
+  ['100+', 'Projects completed'],
 ];
 
 export const MARQUEE = [
@@ -286,12 +288,12 @@ export const CLIENT_LOGOS = [
 
 
 export const SERVICES = [
-  ['Structures', 'High-rise towers & multi-storey buildings', 'Piling, substructure, superstructure and podium works for towers up to 32 floors, executed with our own batching plants and pumps.'],
-  ['Buildings', 'Apartments, hospitals, campuses', 'Residential apartments, commercial complexes, hospitals, multipurpose halls, industrial units, educational institutes and sports complexes.'],
-  ['Interiors', 'Bank branches, offices & suites', 'Interior decoration for branch networks, executive floors and luxury suites, including custom-made furniture, fixtures and upholstery.'],
-  ['Hospitality', 'Five-star hotels, banquets & suites', 'New build and refurbishment for operating hotels, phased so rooms and public areas return to service without closing the property.'],
-  ['Systems', 'MEP, HVAC & medical gas', 'Mechanical, electrical and plumbing works, air conditioning, fire fighting and medical gas systems coordinated with the structure, not after it.'],
-  ['Turnkey', 'Infrastructure & EPC', 'Roads, sewerage, external development and engineering, procurement and construction on a turnkey basis with a single point of responsibility.'],
+  ['Structures', 'High-rise towers & multi-storey buildings', 'Piling, substructure, superstructure, and podium works for high-rise developments, supported by our own batching plants, concrete pumps, and execution teams.'],
+  ['Buildings', 'Apartments, hospitals, campuses', 'Residential, commercial, healthcare, educational, industrial, and recreational facilities delivered with integrated engineering and construction expertise.'],
+  ['Interiors', 'Bank branches, offices & suites', 'Interior solutions for corporate offices, hospitality spaces, executive floors, and luxury suites, supported by our in-house furniture, fixtures, and upholstery manufacturing.'],
+  ['Hospitality', 'Five-star hotels, banquets & suites', 'New-build and refurbishment works for hotels, resorts, banquets, and hospitality spaces, executed with minimal disruption to operations.'],
+  ['Systems', 'MEP, HVAC & medical gas', 'Integrated MEP, HVAC, fire protection, and medical gas systems coordinated from the design stage for seamless project execution.'],
+  ['Turnkey', 'Infrastructure & EPC', 'Infrastructure development, external works, and EPC delivery with complete engineering, procurement, construction, and project coordination under one responsibility.'],
 ];
 
 export const SERVICE_DETAIL = [

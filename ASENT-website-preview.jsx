@@ -614,6 +614,8 @@ const COMPANY = {
 const STATS = [
   ['60+', 'Years in civil construction'],
   ['C-A', 'PEC category, no financial limit'],
+  ['1000+', 'Employees'],
+  ['100+', 'Projects completed'],
 ];
 
 const MARQUEE = [
@@ -624,12 +626,12 @@ const MARQUEE = [
 ];
 
 const SERVICES = [
-  ['Structures', 'High-rise towers & multi-storey buildings', 'Piling, substructure, superstructure and podium works for towers up to 32 floors, executed with our own batching plants and pumps.'],
-  ['Buildings', 'Apartments, hospitals, campuses', 'Residential apartments, commercial complexes, hospitals, multipurpose halls, industrial units, educational institutes and sports complexes.'],
-  ['Interiors', 'Bank branches, offices & suites', 'Interior decoration for branch networks, executive floors and luxury suites, including custom-made furniture, fixtures and upholstery.'],
-  ['Hospitality', 'Five-star hotels, banquets & suites', 'New build and refurbishment for operating hotels, phased so rooms and public areas return to service without closing the property.'],
-  ['Systems', 'MEP, HVAC & medical gas', 'Mechanical, electrical and plumbing works, air conditioning, fire fighting and medical gas systems coordinated with the structure, not after it.'],
-  ['Turnkey', 'Infrastructure & EPC', 'Roads, sewerage, external development and engineering, procurement and construction on a turnkey basis with a single point of responsibility.'],
+  ['Structures', 'High-rise towers & multi-storey buildings', 'Piling, substructure, superstructure, and podium works for high-rise developments, supported by our own batching plants, concrete pumps, and execution teams.'],
+  ['Buildings', 'Apartments, hospitals, campuses', 'Residential, commercial, healthcare, educational, industrial, and recreational facilities delivered with integrated engineering and construction expertise.'],
+  ['Interiors', 'Bank branches, offices & suites', 'Interior solutions for corporate offices, hospitality spaces, executive floors, and luxury suites, supported by our in-house furniture, fixtures, and upholstery manufacturing.'],
+  ['Hospitality', 'Five-star hotels, banquets & suites', 'New-build and refurbishment works for hotels, resorts, banquets, and hospitality spaces, executed with minimal disruption to operations.'],
+  ['Systems', 'MEP, HVAC & medical gas', 'Integrated MEP, HVAC, fire protection, and medical gas systems coordinated from the design stage for seamless project execution.'],
+  ['Turnkey', 'Infrastructure & EPC', 'Infrastructure development, external works, and EPC delivery with complete engineering, procurement, construction, and project coordination under one responsibility.'],
 ];
 
 const SERVICE_DETAIL = [
@@ -1235,23 +1237,27 @@ function Home({ go }) {
         <div className="wrap hero-inner">
           <div className="hero-header-row">
             <div className="hero-title-col">
-              <h1><span className="thin">A New Chapter</span><span className="legacy">Old Legacy</span></h1>
+              <h1><span className="thin">A New Chapter</span><span className="legacy">BUILT ON LEGACY</span></h1>
             </div>
             <div className="hero-pillars">
               <span>Builders</span>
               <span>Contractors</span>
               <span>Interior Decorators</span>
+              <span>Turnkey Solutions</span>
             </div>
           </div>
           <p className="lede">
-            Fifty-one years of civil construction in Pakistan: high-rise towers, hospitals,
-            campuses, five-star hotels, infrastructure and the interiors inside them —
-            delivered under one contract by our own engineers, plant and crews.
+            60 years of engineering excellence in Pakistan.
+          </p>
+          <p className="lede">
+            From high-rise developments and healthcare facilities to hospitality, infrastructure,
+            and complex turnkey projects, ASENT delivers integrated construction solutions through
+            its own engineering expertise, equipment, and skilled workforce.
           </p>
           <div className="hero-bottom-row">
             <div className="hero-actions">
-              <Btn variant="light" href="#/projects" onClick={go('/projects')}>See the projects <Arrow /></Btn>
-              <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Talk to our team</Btn>
+              <Btn variant="light" href="#/projects" onClick={go('/projects')}>Explore Our Projects <Arrow /></Btn>
+              <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Connect With Our Team</Btn>
             </div>
             <div className="hero-partner-logos">
               <img src="./images/Asconlogo.png" alt="Ascon" className="hero-partner-logo" />
@@ -1287,19 +1293,13 @@ function Home({ go }) {
           <Eyebrow>Who we are</Eyebrow>
           <h2>A contractor built around its engineers</h2>
           <p className="lede">
-            ASENT is one of the leading executors of civil construction works in Pakistan,
-            registered with the Pakistan Engineering Council in Category C-A, which carries
-            no financial limit on the work we may undertake.
+            Established in 1966, ASENT is a Pakistani engineering and construction contractor built on over six decades of experience, trust, and project delivery. Registered with the Pakistan Engineering Council under Category C-A, we continue to undertake projects of every scale — contributing to the development of Pakistan's residential, commercial, institutional, and infrastructure landscape.
           </p>
           <p>
-            Behind that licence is a group of qualified, experienced engineers supported by
-            skilled supervisory staff and crews who know their trade. We take on demanding
-            jobs because we keep the disciplines that decide them — civil, MEP, HVAC, piling,
-            finishing and interior decoration — inside the same company.
+            Behind this legacy is a team of experienced engineers, technical specialists, supervisors, and skilled professionals committed to disciplined project execution. Our integrated expertise spans civil construction, MEP, HVAC, piling, finishing, and interior solutions — bringing multiple disciplines together under one organization to deliver reliable, end-to-end project solutions.
           </p>
           <p>
-            We are also the manufacturer of the custom furniture, fixtures and upholstery
-            that complete our interior work, so a fit-out does not stall waiting on a supplier.
+            Our in-house manufacturing capabilities for custom furniture, fixtures, and upholstery further strengthen our ability to deliver complete interior solutions while maintaining control over quality, coordination, and project timelines. Through every project, ASENT remains committed to engineering excellence, trusted partnerships, and creating structures that stand the test of time.
           </p>
           <p><Btn variant="ghost" href="#/about" onClick={go('/about')}>More about the company <Arrow /></Btn></p>
         </Split>
@@ -1310,8 +1310,8 @@ function Home({ go }) {
           <SectionHead
             split
             eyebrow="What we do"
-            title={<>From piling rig to<br />the last light fitting</>}
-            aside="Nine service lines that can be taken separately or bundled into a single turnkey contract."
+            title="From Foundation to Finish"
+            aside="ASENT provides individual services and complete turnkey solutions from a single point of contact."
           />
         </Reveal>
         <Reveal delay="1"><Cards items={SERVICES} /></Reveal>
@@ -1325,7 +1325,7 @@ function Home({ go }) {
           <SectionHead
             split
             eyebrow="Selected work"
-            title="Projects on the ground"
+            title="PROJECT PORTFOLIO"
             aside="A sample from a portfolio that runs from Karachi and Gwadar to Sukkur, Multan, Lahore and Gilgit-Baltistan."
           />
         </Reveal>
@@ -1341,7 +1341,7 @@ function Home({ go }) {
         <Split media="menzies-ras" caption="Menzies RAS · Terminal 3, Karachi Airport" flip>
           <Eyebrow>Capability</Eyebrow>
           <h2>Equipped to deliver</h2>
-          <p className="lede">Programmes slip when a contractor is queuing for someone else&rsquo;s equipment. Ours is on our books.</p>
+          <p className="lede">ASENT commands full control over project lifecycles and delivery timelines through our fully integrated, in-house technical infrastructure.</p>
           <FeatureList items={CAPABILITY} numbered />
           <p style={{ marginTop: 26 }}>
             <Btn variant="outline-light" href="#/equipment" onClick={go('/equipment')}>Full equipment schedule <Arrow /></Btn>

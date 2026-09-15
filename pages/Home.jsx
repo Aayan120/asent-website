@@ -51,23 +51,27 @@ export function Home({ go }) {
         <div className="wrap hero-inner">
           <div className="hero-header-row">
             <div className="hero-title-col">
-              <h1><span className="thin">A New Chapter</span><span className="legacy">Old Legacy</span></h1>
+              <h1><span className="thin">A New Chapter</span><span className="legacy">BUILT ON LEGACY</span></h1>
             </div>
             <div className="hero-pillars">
               <span>Builders</span>
               <span>Contractors</span>
               <span>Interior Decorators</span>
+              <span>Turnkey Solutions</span>
             </div>
           </div>
           <p className="lede">
-            Sixty-plus years of civil construction in Pakistan: high-rise towers, hospitals,
-            campuses, five-star hotels, infrastructure and the interiors inside them —
-            delivered under one contract by our own engineers, plant and crews.
+            60 years of engineering excellence in Pakistan.
+          </p>
+          <p className="lede">
+            From high-rise developments and healthcare facilities to hospitality, infrastructure,
+            and complex turnkey projects, ASENT delivers integrated construction solutions through
+            its own engineering expertise, equipment, and skilled workforce.
           </p>
           <div className="hero-bottom-row">
             <div className="hero-actions">
-              <Btn variant="light" href="#/projects" onClick={go('/projects')}>See the projects <Arrow /></Btn>
-              <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Talk to our team</Btn>
+              <Btn variant="light" href="#/projects" onClick={go('/projects')}>Explore Our Projects <Arrow /></Btn>
+              <Btn variant="outline-light" href="#/contact" onClick={go('/contact')}>Connect With Our Team</Btn>
             </div>
             <div className="hero-partner-logos">
               <img
@@ -153,19 +157,13 @@ export function Home({ go }) {
           <Eyebrow>Who we are</Eyebrow>
           <h2>A contractor built around its engineers</h2>
           <p className="lede">
-            ASENT is one of the leading executors of civil construction works in Pakistan,
-            registered with the Pakistan Engineering Council in Category C-A, which carries
-            no financial limit on the work we may undertake.
+            Established in 1966, ASENT is a Pakistani engineering and construction contractor built on over six decades of experience, trust, and project delivery. Registered with the Pakistan Engineering Council under Category C-A, we continue to undertake projects of every scale — contributing to the development of Pakistan's residential, commercial, institutional, and infrastructure landscape.
           </p>
           <p>
-            Behind that licence is a group of qualified, experienced engineers supported by
-            skilled supervisory staff and crews who know their trade. We take on demanding
-            jobs because we keep the disciplines that decide them — civil, MEP, HVAC, piling,
-            finishing and interior decoration — inside the same company.
+            Behind this legacy is a team of experienced engineers, technical specialists, supervisors, and skilled professionals committed to disciplined project execution. Our integrated expertise spans civil construction, MEP, HVAC, piling, finishing, and interior solutions — bringing multiple disciplines together under one organization to deliver reliable, end-to-end project solutions.
           </p>
           <p>
-            We are also the manufacturer of the custom furniture, fixtures and upholstery
-            that complete our interior work, so a fit-out does not stall waiting on a supplier.
+            Our in-house manufacturing capabilities for custom furniture, fixtures, and upholstery further strengthen our ability to deliver complete interior solutions while maintaining control over quality, coordination, and project timelines. Through every project, ASENT remains committed to engineering excellence, trusted partnerships, and creating structures that stand the test of time.
           </p>
           <p><Btn variant="ghost" href="#/about" onClick={go('/about')}>More about the company <Arrow /></Btn></p>
         </Split>
@@ -176,8 +174,8 @@ export function Home({ go }) {
           <SectionHead
             split
             eyebrow="What we do"
-            title={<>From piling rig to<br />the last light fitting</>}
-            aside="Nine service lines that can be taken separately or bundled into a single turnkey contract."
+            title="From Foundation to Finish"
+            aside="ASENT provides individual services and complete turnkey solutions from a single point of contact."
           />
         </Reveal>
         <Reveal delay="1"><Cards items={SERVICES} /></Reveal>
@@ -191,7 +189,7 @@ export function Home({ go }) {
           <SectionHead
             split
             eyebrow="Selected work"
-            title="Projects on the ground"
+            title="PROJECT PORTFOLIO"
             aside="A sample from a portfolio that runs from Karachi and Gwadar to Sukkur, Multan, Lahore and Gilgit-Baltistan."
           />
         </Reveal>
@@ -207,7 +205,7 @@ export function Home({ go }) {
         <Split media="one-hoshang" caption="One Hoshang · Architectural Model" flip>
           <Eyebrow>Capability</Eyebrow>
           <h2>Equipped to deliver</h2>
-          <p className="lede">Programmes slip when a contractor is queuing for someone else&rsquo;s equipment. Ours is on our books.</p>
+          <p className="lede">ASENT commands full control over project lifecycles and delivery timelines through our fully integrated, in-house technical infrastructure.</p>
           <FeatureList items={CAPABILITY} numbered />
           <p style={{ marginTop: 26 }}>
             <Btn variant="outline-light" href="#/equipment" onClick={go('/equipment')}>Full equipment schedule <Arrow /></Btn>
@@ -215,28 +213,6 @@ export function Home({ go }) {
         </Split>
       </Section>
 
-      <Section tone="ink">
-        <Reveal>
-          <SectionHead
-            eyebrow="Appreciations"
-            title="Reviews"
-            aside=""
-          />
-          <p className="muted" style={{ marginTop: -28, marginBottom: 34 }}>
-            Summarised from completion and appreciation certificates held on file. Originals available on request.
-          </p>
-        </Reveal>
-        <Reveal delay="1">
-          <div className="quote-grid">
-            {QUOTES.map(([text, who]) => (
-              <div className="quote" key={who}>
-                <p>{text}</p>
-                <cite>{who}</cite>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </Section>
 
       <CTA
         go={go}
