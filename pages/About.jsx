@@ -14,7 +14,7 @@ export function About({ go }) {
       <Section grid>
         <Split media="sanofi" caption="Sanofi Aventis Pharma · Korangi, Karachi">
           <Eyebrow>Introduction</Eyebrow>
-          <h2>BUILT ON LEGACY.,<br />DRIVEN BY RELATIONSHIPS</h2>
+          <h2>BUILT ON LEGACY,<br />DRIVEN BY RELATIONSHIPS</h2>
           <br />
           <h2>ENGINEERED FOR THE FUTURE.</h2>
           <p>
