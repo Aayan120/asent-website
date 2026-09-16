@@ -101,7 +101,7 @@ export function About({ go }) {
 
       <CTA
         go={go} href="/contact" label="Ask for the documents"
-        title="Prequalifying a contractor?"
+        title="Ready to work with ASENT?"
         lede="We can furnish completion certificates, a detailed equipment schedule and client references on request."
       />
     </>
