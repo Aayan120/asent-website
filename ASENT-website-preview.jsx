@@ -833,12 +833,12 @@ const ORG = [
 ];
 
 const HSE = [
-  ['Health', 'Fit crews, clean sites', 'New employees are screened for contagious disease. Permanent staff are covered by a comprehensive health insurance scheme. First aid services with trained personnel are stationed at major sites, hygiene is inspected regularly, labour accommodation is sprayed against insects, and temporary toilets are built to a standard hygiene system.'],
-  ['Safety', 'An incident and injury free environment', 'Built through individual commitment to the safety of each other and of our clients. A safety officer watches hazardous conditions and raises awareness down to worker level. Toolbox meetings are held regularly, safety audits test the programme, hazardous materials are stored separately, and a project safety plan is issued to each site.'],
-  ['Environment', 'Aware of what we leave behind', 'Machinery is calibrated and maintained to reduce smoke emission. Sanitary facilities, soak pits and septic tanks prevent hazardous waste. Burning of hazardous material is prohibited, tree cutting is avoided as far as possible, barriers control dust and fumes, and dewatering is discharged to public drains or tankered out.'],
-  ['Quality performance', 'Unparalleled workmanship, on record', 'Good quality has always been the foremost factor in our vision, whether in structure, finishing or fair-face concrete. The record includes plant buildings, corporate head offices, the Aga Khan projects, the central office of Allied Bank and Arabian Sea Country Club.'],
-  ['Quality system', 'Checked before it is covered up', 'Detailed planning and constant monitoring keep activities on time. Quality is controlled at procurement and at inventory level so only specified product is used. Product testing eliminates defective material and inventory is audited for quality and quantity. Tools and equipment are calibrated regularly.'],
-  ['Control', 'Scheduling, maintenance, cash flow', 'Material is scheduled in advance so key items are available before the activity starts. Planned equipment maintenance avoids surprise failure. Frequent site and head office meetings clear bottlenecks, and a modern cost control system avoids waste and maintains cash flow.'],
+  ['Health', 'PEOPLE FIRST', 'We maintain clean, healthy sites with trained personnel, first-aid provisions, proper welfare facilities, and standards that protect the people who build our projects.'],
+  ['Safety', 'SAFETY BY DESIGN', 'Every project operates with dedicated HSE oversight, risk controls, safety briefings, and site procedures designed to prevent incidents before they happen.'],
+  ['Environment', 'RESPONSIBLE BY PRACTICE', 'We manage construction activities with consideration for the environment, controlling waste, dust, emissions, water discharge, and site impact wherever possible.'],
+  ['Quality', 'QUALITY THAT LASTS', 'From materials and workmanship to structure and finishing, quality is monitored throughout the project — because the standard of our work carries our name long after handover.'],
+  ['Quality Control', 'CHECKED AT EVERY STAGE', 'Our teams monitor materials, workmanship, testing, procurement, and execution throughout the project lifecycle, ensuring work meets the required specifications before it moves forward.'],
+  ['Control', 'PLANNED. MONITORED. DELIVERED.', 'Strong planning, procurement, equipment management, and continuous site coordination keep projects moving, minimise disruption, and protect both quality and programme.'],
 ];
 
 const CAPABILITY = [
@@ -1405,7 +1405,7 @@ function About({ go }) {
     <>
       <PageHead
         go={go} crumb="About" title="About ASENT"
-        lede="One of the leading executors of civil construction works in Pakistan — registered with the Pakistan Engineering Council in Category C-A, which sets no financial limit on the work we may undertake."
+        lede="With over six decades of experience, ASENT is a premier engineering and contracting organization. Registered as PEC Category C-A, we have the resources to deliver infrastructure projects of any scale across Pakistan."
       />
 
       <Section grid>
@@ -1467,7 +1467,7 @@ function About({ go }) {
       <Section>
         <Reveal>
           <SectionHead
-            split eyebrow="Organisation" title="How a project is staffed"
+            split eyebrow="OUR TEAM" title="CLEAR RESPONSIBILITY. COMPLETE CONTROL"
             aside="Two partners over five departments. Every site gets a project manager or site in charge, with HSE and quality assurance reporting alongside them, not underneath the programme."
           />
         </Reveal>
@@ -2264,7 +2264,7 @@ export default function App() {
         <div className="wrap nav-inner">
           <a className="brand" href="#/" onClick={go('/')}>
             <img src={IMAGES.logoWhite} alt="ASENT" />
-            <span className="brand-tag">Formerly<br />Al-Shafi Enterprises</span>
+            <span className="brand-tag">Estb. 1966<br />Formerly<br />Al-Shafi Enterprises</span>
           </a>
 
           <nav>

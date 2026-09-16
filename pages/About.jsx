@@ -8,43 +8,46 @@ export function About({ go }) {
     <>
       <PageHead
         go={go} crumb="About" title="About ASENT"
-        lede="One of the leading executors of civil construction works in Pakistan — registered with the Pakistan Engineering Council in Category C-A, which sets no financial limit on the work we may undertake."
+        lede="With over six decades of experience, ASENT is a premier engineering and contracting organization. Registered as PEC Category C-A, we have the resources to deliver infrastructure projects of any scale across Pakistan."
       />
 
       <Section grid>
         <Split media="sanofi" caption="Sanofi Aventis Pharma · Korangi, Karachi">
           <Eyebrow>Introduction</Eyebrow>
-          <h2>Sixty-One years,<br />and still on site</h2>
+          <h2>BUILT ON LEGACY.,<br />DRIVEN BY RELATIONSHIPS</h2>
+          <br />
+          <h2>ENGINEERED FOR THE FUTURE.</h2>
           <p>
-            ASENT — for most of its history Al-Shafi Enterprises — has been building in
-            Pakistan since 1966. The company brings together qualified, experienced engineers
-            and a team of skilled supervisory staff and workers, each with full command of
-            their field.
+            Founded in 1966 by Shafi Ahmed (Late), formerly Al-Shafi Enterprises —  ASENT has grown across three
+            generations into an integrated engineering and construction company serving clients across Pakistan.
+            The business was further expanded
+            and strengthened by his sons, Jamil Shafi and Tahir Shafi, building on the foundation he established
           </p>
           <p>
-            Once work is entrusted to us, we accomplish it within the agreed period and to the
-            satisfaction of the client. That has produced a long list of completed and ongoing
-            construction and interior decoration projects, and a file of work orders,
-            appreciation letters and completion certificates issued by clients and consultants.
+            Our clients are at the heart of our business. Many relationships have continued for decades, built on
+            trust, quality, competitive value, timely delivery, and a commitment to meeting each client's specific
+            requirements.For us, a project is more than a contract — it is the beginning of a lasting relationship
           </p>
           <p>
-            We are proud of having worked on many prestigious projects, and of clients who are
-            satisfied with our performance, our punctuality and our way of working.
+            With experienced engineers, skilled teams, owned equipment, in-house capabilities, 100+ projects
+            delivered, and over 20 million sq. ft. constructed, ASENT is equipped to undertake projects of
+            significant scale.With six decades behind us, we are building towards an even bigger future in
+            Pakistan and beyond.
           </p>
         </Split>
       </Section>
 
       <Section tone="paper2">
-        <Reveal><SectionHead eyebrow="Position" title="What that licence covers" /></Reveal>
+        <Reveal><SectionHead eyebrow="Position" title="Our capabilites" /></Reveal>
         <Reveal delay="1">
           <div className="spec-list">
             {[
-              ['Category C-A, no limit', 'PEC registration CA-00175 places no ceiling on contract value, so tower, campus and infrastructure packages can be bid directly rather than through a joint venture.'],
-              ['Certified systems', 'ISO 9001 for quality management, ISO 14001 for environment and ISO 18001 for occupational health and safety, applied on site rather than kept in a binder.'],
-              ['All trades in house', 'Civil, MEP, HVAC, piling, finishing and interior decoration are carried by our own staff, which keeps interfaces and responsibility in one place.'],
-              ['Our own manufacturing', 'Custom furniture, fixtures and upholstery are made by us for our interior contracts, so fit-out schedules are not hostage to a supplier queue.'],
-              ['National reach', 'Projects delivered in Karachi, Gwadar, Quetta, Sukkur, Muzaffargarh, Multan, Bahawalpur, D.I. Khan, Uthal, Lahore, Rawalpindi, Islamabad and Gilgit-Baltistan.'],
-              ['Plant on our books', 'Batching plants, pumps, mixers, earthmoving equipment, survey instruments and a site laboratory, available to our programme first.'],
+              ['PEC CATEGORY C-A — NO FINANCIAL LIMIT', 'Registered with the Pakistan Engineering Council under Category C-A, enabling ASENT to undertake projects without a financial limit on contract value.'],
+              ['CERTIFIED MANAGEMENT SYSTEMS', 'Our quality, environmental, and occupational health and safety systems are supported by internationally recognised ISO standards and implemented across our operations.'],
+              ['IN-HOUSE EXPERTISE', 'Civil, MEP, HVAC, piling, finishing, and interior works are managed through our own teams, keeping coordination, quality, and accountability under one organisation'],
+              ['IN-HOUSE MANUFACTURING', 'Our manufacturing capabilities cover custom furniture, fixtures, and upholstery, giving us greater control over quality, coordination, and interior project timelines.'],
+              ['NATIONAL REACH', 'Our experience extends across major cities and regions throughout Pakistan, with projects delivered across diverse sectors and locations.'],
+              ['OWNED PLANT & EQUIPMENT', 'Our fleet includes batching plants, concrete pumps, mixers, earthmoving equipment, surveying instruments, site laboratory facilities and many more , allowing us to support our projects with resources under our own control.'],
             ].map(([h, p]) => (
               <div className="spec" key={h}><h4>{h}</h4><p>{p}</p></div>
             ))}
@@ -67,12 +70,11 @@ export function About({ go }) {
           </div>
         </Reveal>
       </Section>
-
       <Section>
         <Reveal>
           <SectionHead
-            split eyebrow="Organisation" title="How a project is staffed"
-            aside="Two partners over five departments. Every site gets a project manager or site in charge, with HSE and quality assurance reporting alongside them, not underneath the programme."
+            split eyebrow="ONE TEAM" title="CLEAR RESPONSIBILITY. COMPLETE CONTROL"
+            aside="Every ASENT project is supported by coordinated commercial, technical, procurement, and site teams, working together to deliver quality within the agreed programme. From planning to completion, clear leadership, quality assurance, and HSE oversight ensure every discipline remains aligned and accountable."
           />
         </Reveal>
         <Reveal delay="1">
@@ -90,8 +92,8 @@ export function About({ go }) {
       <Section tone="paper2" id="hse">
         <Reveal>
           <SectionHead
-            eyebrow="HSE & quality assurance" title="Control and policy"
-            lede="Safety, health and environmental protection have always been of foremost importance in ASENT policy. Quality of work and HSE go hand in hand, and we do what is required to achieve both."
+            eyebrow="HSE & quality assurance" title="BUILT RIGHT. BUILT RESPONSIBLY"
+            lede="At ASENT, quality, safety, and environmental responsibility are part of how we deliver — not separate from it. Our systems are built into every stage of a project, from planning and procurement to execution and completion."
           />
         </Reveal>
         <Reveal delay="1"><Cards items={HSE} /></Reveal>

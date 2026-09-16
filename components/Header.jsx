@@ -20,6 +20,7 @@ export function Header({ path, go, stuck, menuOpen, setMenuOpen }) {
         <a className="brand" href="#/" onClick={go('/')}>
           <img src="./images/cropped-Logo-asent.png" alt="ASENT" />
           <span className="brand-tag">
+            Estb. 1966<br />
             Formerly<br />Al-Shafi Enterprises
           </span>
         </a>
