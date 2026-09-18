@@ -518,6 +518,7 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 
 /* ---------- page header (interior pages) ---------- */
 .page-head{position:relative;background:var(--navy);color:#fff;padding:clamp(70px,9vw,120px) 0 clamp(40px,5vw,64px);overflow:hidden}
+.page-head h1{color:#fff}
 .page-head::after{
   content:"";position:absolute;right:-4%;top:-30%;width:46%;height:180%;
   background:linear-gradient(150deg,rgba(51,55,124,.55),transparent 65%);

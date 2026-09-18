@@ -487,6 +487,7 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 
 /* ---------- page header (interior pages) ---------- */
 .page-head{position:relative;background:var(--navy);color:#fff;padding:clamp(70px,9vw,120px) 0 clamp(40px,5vw,64px);overflow:hidden}
+.page-head h1{color:#fff}
 .page-head::after{
   content:"";position:absolute;right:-4%;top:-30%;width:46%;height:180%;
   background:linear-gradient(150deg,rgba(51,55,124,.55),transparent 65%);
@@ -636,31 +637,53 @@ const SERVICES = [
 
 const SERVICE_DETAIL = [
   {
-    eyebrow: 'Structures', title: 'High-rise towers & multi-storey buildings',
-    lede: 'From trial piles to topping out, with the concrete supplied by our own plants.',
-    body: 'Tower work is a sequence of decisions that cannot be revisited: pile capacity, raft pour continuity, formwork cycle, crane reach. We plan those first and staff the site accordingly — a project manager on site, planning and co-ordination engineers behind them, and quantity surveying that keeps commercial reality attached to the programme.',
-    points: ['Bored piling, ground improvement and deep substructure', 'RCC frames, podiums, cores and post-tensioned slabs', 'Light gauge steel and pre-engineered buildings', 'Facades, glazing and fair-face concrete finishing'],
+    eyebrow: 'Structures', title: 'High-rise & multi-storey buildings',
+    lede: 'From foundations to finishing, ASENT delivers complete structural solutions backed by experienced engineering teams and owned construction resources.',
+    body: '',
+    points: [
+      'Bored piling, ground improvement & deep substructure',
+      'RCC frames, cores, podiums & post-tensioned slabs',
+      'Pre-engineered & steel structures',
+      'Facades, glazing & fair-face concrete',
+      'Complete structural execution from pile to handover',
+    ],
     img: 'arkadian', caption: '',
   },
   {
     eyebrow: 'Buildings', title: 'Hospitals, campuses & complexes', flip: true,
-    lede: 'Buildings that have to work for the people inside them from day one.',
-    body: 'Hospitals and universities are not ordinary shells. Clinical areas need medical gas, isolation, and finishes that can be cleaned; campuses need to be handed over between semesters. We have built and extended both while they stayed open, phasing works around patients, students and staff.',
-    points: ['Hospitals, medical centres and clinical fit-out', 'Educational institutes, hostels, auditoria and libraries', 'Residential apartments and large multi-family housing', 'Commercial complexes, industrial units and sports complexes'],
+    lede: 'From healthcare and education to commercial, residential, industrial and sports developments, ASENT delivers buildings designed for demanding environments and long-term use.',
+    body: '',
+    points: [
+      'Hospitals, medical centres & clinical fit-outs',
+      'Educational institutions, hostels, auditoria & libraries',
+      'Residential apartments & multi-family housing',
+      'Commercial complexes & industrial units',
+      'Sports complexes & recreational facilities',
+    ],
     img: 'mjsf-hospital', caption: 'MJSF Hospital · Sehwan, Sindh — 58 acres',
   },
   {
-    eyebrow: 'Interiors', title: 'Interior decoration & custom furniture',
-    lede: 'Bank branches, executive floors, luxury suites — and the furniture that goes into them, made by us.',
-    body: 'Interior decoration is where a programme is usually lost, because it depends on dozens of suppliers arriving in the right order. We manufacture our own furniture items, fixtures and upholstery, which removes the longest lead item from someone else\u2019s factory queue and puts it on our own schedule.',
-    points: ['Branch networks and banking halls, delivered city by city', 'Executive offices, boardrooms and dining floors', 'Custom joinery, fixtures, upholstery and loose furniture', 'Stone, metalwork, feature ceilings and lighting integration'],
+    eyebrow: 'Interiors', title: 'Complete interior solutions',
+    lede: 'From executive spaces to complete commercial fit-outs, we deliver interiors with the same in-house capability, quality standards, and attention to detail.',
+    body: 'We manage the complete interior process—from design coordination and finishes to custom furniture, fixtures, and final installation. Our own manufacturing capabilities give us greater control over quality, timelines, and execution.',
+    points: [
+      'Branch networks and banking halls',
+      'Executive offices, boardrooms and dining spaces',
+      'Custom joinery, fixtures, upholstery and loose furniture',
+      'Stone, metalwork, feature ceilings and lighting integration',
+    ],
     img: 'exec-dining', caption: 'Executive dining, 25th floor · TPL Centrepoint',
   },
   {
-    eyebrow: ' Hospitality', title: 'Five-star hotels, banquets & suites', flip: true, dark: true,
-    lede: 'New build and refurbishment for properties that cannot simply close.',
-    body: 'At Zaver Pearl Continental in Gwadar we delivered civil, mechanical and interior decoration for a 310,000 sq ft five-star hotel. At Serena Quetta we ran an 18-month renovation across guest rooms, common areas and back-of-house. Hotel work rewards sequencing: floor by floor, wing by wing, with noise, dust and access controlled around guests.',
-    points: ['Guest rooms, suites, lobbies and banqueting', 'Back-of-house, kitchens and services upgrades', 'Phased refurbishment of operating properties'],
+    eyebrow: 'Hospitality', title: 'Five-star hotels, banquets & suites', flip: true, dark: true,
+    lede: 'New build and refurbishment works for hospitality properties where quality, coordination and continuity matter.',
+    body: 'We deliver complete construction and interior works for hotels, suites and banquet facilities, with careful planning to minimise disruption and maintain operations wherever required.',
+    points: [
+      'Guest rooms, suites, lobbies and banquet spaces',
+      'Back-of-house, kitchens and service-area upgrades',
+      'Phased refurbishment of operating hotels and properties',
+      'Civil, MEP and interior works',
+    ],
     img: 'serena-room', caption: 'Guest room renovation · Serena Hotel, Quetta',
   },
 ];

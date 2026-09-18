@@ -7,8 +7,8 @@ export function Services({ go }) {
   return (
     <>
       <PageHead
-        go={go} crumb="Services" title="Valuable services"
-        lede="Nine service lines, taken package by package or bundled into one turnkey contract. The same engineers, plant and quality system apply to all of them."
+        go={go} crumb="Services" title="FROM GROUNDWORK TO FINISHING"
+        lede="ASENT brings engineering, expertise, equipment, and specialist capabilities together under one roof — delivering individual services or complete turnkey solutions with one point of responsibility."
       />
 
       {SERVICE_DETAIL.map((s, i) => (
@@ -17,14 +17,20 @@ export function Services({ go }) {
             <Eyebrow>{s.eyebrow}</Eyebrow>
             <h2>{s.title}</h2>
             <p className="lede">{s.lede}</p>
-            <p>{s.body}</p>
+            {s.body && <p>{s.body}</p>}
             <FeatureList items={s.points} />
           </Split>
         </Section>
       ))}
 
       <Section tone="paper2">
-        <Reveal><SectionHead eyebrow="Turnkey Delivery" title={<>Systems, infrastructure<br />and turnkey delivery</>} /></Reveal>
+        <Reveal>
+          <SectionHead
+            eyebrow="Turnkey Delivery"
+            title={<>Engineering, infrastructure<br />& turnkey delivery</>}
+            lede="Integrated engineering and construction capabilities, delivered through one coordinated team and a single point of responsibility."
+          />
+        </Reveal>
         <Reveal delay="1"><Cards items={SERVICES_MORE} /></Reveal>
       </Section>
 
