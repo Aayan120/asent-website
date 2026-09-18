@@ -1652,8 +1652,8 @@ function Projects({ go }) {
 
       <CTA
         go={go} href="/contact" label="Ask us"
-        title="Want the details on a project?"
-        lede="We can share drawings-level scope, programme performance and the client reference for any project listed here."
+        title="Looking for more detail?"
+        lede="Explore our project portfolio or contact us for detailed project information, references and relevant documentation."
       />
     </>
   );

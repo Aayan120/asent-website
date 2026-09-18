@@ -87,7 +87,7 @@ export function Projects({ go, subPath }) {
     <>
       <PageHead
         go={go} crumb="Projects" title="Building Since 1966"
-        lede="Towers, hospitals, campuses, hotels, banks and infrastructure — built from Karachi and Gwadar to Sukkur, Muzaffargarh, Lahore and Gilgit-Baltistan.100+ projects completed and 15+ projects are on going."
+        lede={<>Towers, hospitals, campuses, hotels, banks and infrastructure — delivered across Pakistan, from Karachi and Gwadar to Lahore, Sukkur, Muzaffargarh and Gilgit-Baltistan.<br /><br />100+ projects completed, with 15+ currently ongoing.</>}
       />
 
       <Section>
@@ -197,8 +197,8 @@ export function Projects({ go, subPath }) {
 
       <CTA
         go={go} href="/contact" label="Ask us"
-        title="Want the details on a project?"
-        lede="We can share drawings-level scope, programme performance and the client reference for any project listed here."
+        title="Looking for more detail?"
+        lede="Explore our project portfolio or contact us for detailed project information, references and relevant documentation."
       />
 
       {/* Lightbox Slider Modal */}

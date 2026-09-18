@@ -7,7 +7,7 @@ export function About({ go }) {
   return (
     <>
       <PageHead
-        go={go} crumb="About" title="About ASENT"
+        go={go} crumb="About" title="Building Since 1966"
         lede="With over six decades of experience, ASENT is a premier engineering and contracting organization. Registered as PEC Category C-A, we have the resources to deliver infrastructure projects of any scale across Pakistan."
       />
 

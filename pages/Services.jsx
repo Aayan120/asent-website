@@ -36,8 +36,8 @@ export function Services({ go }) {
 
       <CTA
         go={go} href="/contact" label="Request a proposal"
-        title="Tell us the scope"
-        lede="Send drawings, a bill of quantities or just a description of the site. We will tell you how we would build it."
+        title="Tell us what you’re building"
+        lede="Share your drawings, BOQ, or project requirements. Our team will assess the scope and develop the right approach for delivery."
       />
     </>
   );
