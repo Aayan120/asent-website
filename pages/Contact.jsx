@@ -44,6 +44,7 @@ export function Contact({ go }) {
     <>
       <PageHead
         go={go} crumb="Contact" title="Contact us"
+        image="contact-hero"
         lede="Three offices, one team. Tell us about the site and the scope, and the right engineer will come back to you."
       />
 

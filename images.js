@@ -46,6 +46,13 @@ export const IMAGES = {
   "cert-usaid": "./images/HSEcertificates/USAID.png",
   "asconBD": "./images/asconBD.png",
   "p2f": "./images/p2f.png",
-  "ascon": "./images/ascon.png"
+  "ascon": "./images/ascon.png",
+  "services-hero": "./images/services-hero.jpg",
+  "projects-hero": "./images/projects-hero.jpg",
+  "equipment-hero": "./images/equipment-hero.jpg",
+  "events-hero": "./images/events-hero.jpg",
+  "careers-hero": "./images/careers-hero.jpg",
+  "achievements-hero": "./images/achievements-hero.jpg",
+  "contact-hero": "./images/contact-hero.jpg"
 };
 

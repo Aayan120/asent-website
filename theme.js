@@ -518,13 +518,21 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 
 /* ---------- page header (interior pages) ---------- */
 .page-head{position:relative;background:var(--navy);color:#fff;padding:clamp(70px,9vw,120px) 0 clamp(40px,5vw,64px);overflow:hidden}
-.page-head h1{color:#fff}
+.page-head--has-bg{background-size:cover;background-position:center 30%;background-repeat:no-repeat}
+.page-head--has-bg::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(14,18,43,0.92) 0%,rgba(14,18,43,0.78) 55%,rgba(14,18,43,0.94) 100%);
+  z-index:1;
+}
+.page-head h1{color:#fff;position:relative}
 .page-head::after{
   content:"";position:absolute;right:-4%;top:-30%;width:46%;height:180%;
-  background:linear-gradient(150deg,rgba(51,55,124,.55),transparent 65%);
+  background:linear-gradient(150deg,rgba(51,55,124,.4),transparent 65%);
   clip-path:polygon(42% 0,100% 0,100% 100%,0 100%);
+  z-index:2;
+  pointer-events:none;
 }
-.page-head .wrap{position:relative}
+.page-head .wrap{position:relative;z-index:3}
 .page-head p{max-width:60ch;color:#C8CDE4;margin-top:14px}
 .crumbs{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8F97BC;margin-bottom:18px}
 .crumbs a:hover{color:#fff}

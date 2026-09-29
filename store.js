@@ -46,7 +46,7 @@ export const SEED = [
       '<p>A bid from a contractor whose category sits below the project value can be rejected at the technical stage no matter how competitive the price is. Checking the licence class early saves a re-tender later.</p>' +
       '<h2>What to verify in a prequalification</h2>' +
       '<ul><li>Current PEC registration number and category, and its validity date</li><li>Completed works of comparable value and building type, with completion certificates</li><li>Owned plant and equipment, not only hired capacity</li><li>Quality and HSE systems, and whether they are certified</li><li>Financial standing and bonding capacity</li></ul>' +
-      '<p>Alongside its PEC registration, ASENT maintains ISO 9001, ISO 14001 and ISO 18001 systems, and can furnish a detailed equipment schedule and client completion certificates on request.</p>',
+      '<p>Alongside its PEC registration, ASENT maintains ISO 9001, ISO 45001 and ISO 18001 systems, and can furnish a detailed equipment schedule and client completion certificates on request.</p>',
   },
   {
     id: 'p-peace', slug: 'peace-apartments-tower-a-tops-out',

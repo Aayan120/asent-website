@@ -79,7 +79,7 @@ export const CAREERS_DATA = [
     type: 'Full-time',
     experience: '5+ Years',
     deadline: 'Open until filled',
-    overview: 'Champion and implement ISO 14001 and ISO 45001 safety frameworks, conducting daily risk audits across heavy plant and high-altitude operations.',
+    overview: 'Champion and implement ISO 9001 and ISO 45001 safety frameworks, conducting daily risk audits across heavy plant and high-altitude operations.',
     responsibilities: [
       'Formulate site-specific HSE plans, hazard identifications, and risk assessments (HIRA).',
       'Conduct regular safety tool-box talks, emergency mock drills, and scaffolding inspections.',
@@ -137,7 +137,7 @@ export const CAREERS_DATA = [
 export const CAREER_PERKS = [
   ['01', 'Iconic Engineering Scope', 'Work on Category C-A (no financial limit) projects including 30+ storey towers, regional campuses, and healthcare landmarks.'],
   ['02', 'Professional Development', 'Continuous mentorship from veteran chief engineers, leadership training, and sponsorships for technical certifications.'],
-  ['03', 'Safety First Culture', 'Strict adherence to ISO 9001, ISO 14001, and ISO 18001 standards with industry-leading safety track records.'],
+  ['03', 'Safety First Culture', 'Strict adherence to ISO 9001, ISO 45001, and ISO 18001 standards with industry-leading safety track records.'],
   ['04', 'In-House Turnkey Resources', 'Collaborate directly with our own heavy plant fleet, soil laboratories, and custom joinery manufacturing factories.'],
 ];
 
@@ -164,6 +164,7 @@ export function Career({ go }) {
         go={go}
         crumb="Careers"
         title="Build Pakistan's Future With Us"
+        image="careers-hero"
         lede="Join a team of passionate engineers, construction managers, and builders executing landmark civil infrastructure, high-rise towers, and turnkey interiors across Pakistan."
       />
 

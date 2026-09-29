@@ -87,7 +87,7 @@ const HSE_GOLDEN_RULES = [
 
 const HSE_STATS = [
   ['5M+', 'Safe Man-Hours', 'Delivered across high-rise, industrial, and infrastructure sites without Lost Time Injury.'],
-  ['ISO 9001 / 14001 / 18001', 'Certified Systems', 'Quality, environmental, and occupational safety frameworks audited and applied on site.'],
+  ['ISO 9001 / 45001 / 18001', 'Certified Systems', 'Quality, environmental, and occupational safety frameworks audited and applied on site.'],
   ['PEC Category C-A', 'No-Limit Registration', 'Pakistan Engineering Council certified to manage projects of unlimited financial scale safely.'],
   ['100%', 'Induction & PPE', 'Mandatory safety orientation and full protective gear before any worker steps onto the site.'],
 ];
@@ -119,6 +119,7 @@ export function HSEPolicy({ go }) {
         go={go}
         crumb="HSE Policy"
         title="Health, Safety & Environment Policy"
+        image="sanofi"
         lede="A zero-incident philosophy backed by ISO-certified systems, full-time site supervision, rigorous audits, and an uncompromising commitment to protecting every life on our sites."
       />
 

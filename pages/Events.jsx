@@ -114,6 +114,7 @@ export function Events({ go }) {
         go={go}
         crumb="Events"
         title="Events &amp; Industry Engagements"
+        image="events-hero"
         lede="Stay informed on ASENT groundbreaking ceremonies, international construction exhibitions, engineering symposiums, and corporate milestones."
       />
 

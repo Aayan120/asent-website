@@ -87,6 +87,7 @@ export function Projects({ go, subPath }) {
     <>
       <PageHead
         go={go} crumb="Projects" title="Building Since 1966"
+        image="projects-hero"
         lede={<>Towers, hospitals, campuses, hotels, banks and infrastructure — delivered across Pakistan, from Karachi and Gwadar to Lahore, Sukkur, Muzaffargarh and Gilgit-Baltistan.<br /><br />100+ projects completed, with 15+ currently ongoing.</>}
       />
 

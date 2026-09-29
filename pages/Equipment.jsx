@@ -6,6 +6,7 @@ export function Equipment({ go }) {
     <>
       <PageHead
         go={go} crumb="Equipment" title="Plant & equipment"
+        image="equipment-hero"
         lede="Owned, maintained and allocated to our own programme. A comprehensive maintenance schedule keeps this fleet at optimum capacity and avoids surprise failure mid-pour."
       />
 

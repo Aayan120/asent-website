@@ -11,7 +11,7 @@ export function Footer({ go }) {
           <div className="badges">
             <span className="badge">PEC CA-00175 · C-A No Limit</span>
             <span className="badge">ISO 9001</span>
-            <span className="badge">ISO 14001</span>
+            <span className="badge">ISO 45001</span>
             <span className="badge">ISO 18001</span>
           </div>
         </div>

@@ -487,13 +487,21 @@ td .yr{font-family:var(--mono);color:var(--rust)}
 
 /* ---------- page header (interior pages) ---------- */
 .page-head{position:relative;background:var(--navy);color:#fff;padding:clamp(70px,9vw,120px) 0 clamp(40px,5vw,64px);overflow:hidden}
-.page-head h1{color:#fff}
+.page-head--has-bg{background-size:cover;background-position:center 30%;background-repeat:no-repeat}
+.page-head--has-bg::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(14,18,43,0.92) 0%,rgba(14,18,43,0.78) 55%,rgba(14,18,43,0.94) 100%);
+  z-index:1;
+}
+.page-head h1{color:#fff;position:relative}
 .page-head::after{
   content:"";position:absolute;right:-4%;top:-30%;width:46%;height:180%;
-  background:linear-gradient(150deg,rgba(51,55,124,.55),transparent 65%);
+  background:linear-gradient(150deg,rgba(51,55,124,.4),transparent 65%);
   clip-path:polygon(42% 0,100% 0,100% 100%,0 100%);
+  z-index:2;
+  pointer-events:none;
 }
-.page-head .wrap{position:relative}
+.page-head .wrap{position:relative;z-index:3}
 .page-head p{max-width:60ch;color:#C8CDE4;margin-top:14px}
 .crumbs{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8F97BC;margin-bottom:18px}
 .crumbs a:hover{color:#fff}
@@ -609,7 +617,7 @@ const COMPANY = {
   phone: '+92-21-35310364-66',
   phoneHref: '+922135310364',
   pec: 'PEC CA-00175 · Category C-A (No Limit)',
-  iso: 'ISO 9001 · 14001 · 18001',
+  iso: 'ISO 9001 · 45001 · 18001',
 };
 
 const STATS = [
@@ -929,7 +937,7 @@ Allied construction material|Held in quantity|Local|Various`)],
 const OFFICES = [
   ['Head office — Karachi', 'Building No. 7-C, Old Sunset Boulevard,\nPhase II, DHA, Karachi', '+92-21-35310364-66', '+922135310364'],
   ['Sub office — Karachi', 'Plot No. 388/1 Lasbella,\nGarden West, Karachi', '+92-21-34120978', '+922134120978'],
-  ['Regional office — Gilgit', 'Near GB Autos, opposite Supreme Appellate Court,\nNoor Colony, Jutial, Gilgit', '', ''],
+  ['Regional office — Naya Nazimabad', 'Naya Nazimabad,\nKarachi', '', ''],
 ];
 
 const TENDER_DOCS = [
@@ -990,7 +998,7 @@ const SEED = [
       '<p>A bid from a contractor whose category sits below the project value can be rejected at the technical stage no matter how competitive the price is. Checking the licence class early saves a re-tender later.</p>' +
       '<h2>What to verify in a prequalification</h2>' +
       '<ul><li>Current PEC registration number and category, and its validity date</li><li>Completed works of comparable value and building type, with completion certificates</li><li>Owned plant and equipment, not only hired capacity</li><li>Quality and HSE systems, and whether they are certified</li><li>Financial standing and bonding capacity</li></ul>' +
-      '<p>Alongside its PEC registration, ASENT maintains ISO 9001, ISO 14001 and ISO 18001 systems, and can furnish a detailed equipment schedule and client completion certificates on request.</p>',
+      '<p>Alongside its PEC registration, ASENT maintains ISO 9001, ISO 45001 and ISO 18001 systems, and can furnish a detailed equipment schedule and client completion certificates on request.</p>',
   },
   {
     id: 'p-hse', slug: 'hse-plan-high-rise-pour',
@@ -1109,9 +1117,14 @@ function SectionHead({ eyebrow, title, aside, lede, split }) {
   );
 }
 
-function PageHead({ crumb, title, lede, go }) {
+function PageHead({ crumb, title, lede, go, image = 'one-hoshang', bgImage }) {
+  const imgKey = image || bgImage;
+  const bg = imgKey ? (IMAGES[imgKey] || imgKey) : null;
   return (
-    <section className="page-head">
+    <section
+      className={`page-head ${bg ? 'page-head--has-bg' : ''}`}
+      style={bg ? { backgroundImage: `url(${bg})` } : {}}
+    >
       <div className="wrap">
         <p className="crumbs">
           <a href="#/" onClick={go('/')}>Home</a> / {crumb}
@@ -1428,6 +1441,7 @@ function About({ go }) {
     <>
       <PageHead
         go={go} crumb="About" title="About ASENT"
+        image="hero-mangrove-aerial"
         lede="With over six decades of experience, ASENT is a premier engineering and contracting organization. Registered as PEC Category C-A, we have the resources to deliver infrastructure projects of any scale across Pakistan."
       />
 
@@ -1460,7 +1474,7 @@ function About({ go }) {
           <div className="spec-list">
             {[
               ['Category C-A, no limit', 'PEC registration CA-00175 places no ceiling on contract value, so tower, campus and infrastructure packages can be bid directly rather than through a joint venture.'],
-              ['Certified systems', 'ISO 9001 for quality management, ISO 14001 for environment and ISO 18001 for occupational health and safety, applied on site rather than kept in a binder.'],
+              ['Certified systems', 'ISO 9001 for quality management, ISO 45001 for environment and occupational safety, applied on site rather than kept in a binder.'],
               ['All trades in house', 'Civil, MEP, HVAC, piling, finishing and interior decoration are carried by our own staff, which keeps interfaces and responsibility in one place.'],
               ['Our own manufacturing', 'Custom furniture, fixtures and upholstery are made by us for our interior contracts, so fit-out schedules are not hostage to a supplier queue.'],
               ['National reach', 'Projects delivered in Karachi, Gwadar, Quetta, Sukkur, Muzaffargarh, Multan, Bahawalpur, D.I. Khan, Uthal, Lahore, Rawalpindi, Islamabad and Gilgit-Baltistan.'],
@@ -1531,6 +1545,7 @@ function Services({ go }) {
     <>
       <PageHead
         go={go} crumb="Services" title="Valuable services"
+        image="centerpoint"
         lede="Nine service lines, taken package by package or bundled into one turnkey contract. The same engineers, plant and quality system apply to all of them."
       />
 
@@ -1586,6 +1601,7 @@ function Projects({ go }) {
     <>
       <PageHead
         go={go} crumb="Projects" title="Projects"
+        image="arkadian"
         lede="Towers, hospitals, campuses, hotels, banks and infrastructure — built from Karachi and Gwadar to Sukkur, Muzaffargarh, Lahore and Gilgit-Baltistan."
       />
 
@@ -1665,6 +1681,7 @@ function Equipment({ go }) {
     <>
       <PageHead
         go={go} crumb="Equipment" title="Plant & equipment"
+        image="peace-apartments-site"
         lede="Owned, maintained and allocated to our own programme. A comprehensive maintenance schedule keeps this fleet at optimum capacity and avoids surprise failure mid-pour."
       />
 
@@ -1699,6 +1716,7 @@ function Contact({ go }) {
     <>
       <PageHead
         go={go} crumb="Contact" title="Contact us"
+        image="js-center"
         lede="Three offices, one team. Tell us about the site and the scope, and the right engineer will come back to you."
       />
 
@@ -1815,6 +1833,7 @@ function Blog({ go }) {
     <>
       <PageHead
         go={go} crumb="Insights" title="Insights"
+        image="gilgit-medical"
         lede="Site reports, completion milestones, safety practice and plain notes on how construction contracting works in Pakistan. Written by the people doing the work."
       />
 
@@ -2338,7 +2357,7 @@ export default function App() {
             <div className="badges">
               <span className="badge">PEC CA-00175 · C-A No Limit</span>
               <span className="badge">ISO 9001</span>
-              <span className="badge">ISO 14001</span>
+              <span className="badge">ISO 45001</span>
               <span className="badge">ISO 18001</span>
             </div>
           </div>

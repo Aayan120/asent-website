@@ -10,7 +10,7 @@ export const COMPANY = {
   phone: '+92-21-35310364-66',
   phoneHref: '+922135310364',
   pec: 'PEC CA-00175 · Category C-A (No Limit)',
-  iso: 'ISO 9001 · 14001 · 18001',
+  iso: 'ISO 9001 · 45001 · 18001',
 };
 
 export const STATS = [
@@ -590,7 +590,7 @@ Allied construction material|Held in quantity|Local|Various`)],
 export const OFFICES = [
   ['Head office — Karachi', 'Building No. 7-C, Old Sunset Boulevard,\nPhase II, DHA, Karachi', '+92-21-35310364-66', '+922135310364'],
   ['Factory  — Karachi', 'Plot No. 388/1 Lasbella,\nGarden West, Karachi', '+92-21-34120978', '+922134120978'],
-  ['Regional office — Gilgit', 'Near GB Autos, opposite Supreme Appellate Court,\nNoor Colony, Jutial, Gilgit', '', ''],
+  ['Regional office — Naya Nazimabad', 'Naya Nazimabad,\nKarachi', '', ''],
 ];
 
 export const TENDER_DOCS = [

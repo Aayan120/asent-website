@@ -8,6 +8,7 @@ export function Services({ go }) {
     <>
       <PageHead
         go={go} crumb="Services" title="FROM GROUNDWORK TO FINISHING"
+        image="services-hero"
         lede="ASENT brings engineering, expertise, equipment, and specialist capabilities together under one roof — delivering individual services or complete turnkey solutions with one point of responsibility."
       />
 

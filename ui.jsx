@@ -31,9 +31,14 @@ export function SectionHead({ eyebrow, title, aside, lede, split }) {
   );
 }
 
-export function PageHead({ crumb, title, lede, go }) {
+export function PageHead({ crumb, title, lede, go, image = 'one-hoshang', bgImage }) {
+  const imgKey = image || bgImage;
+  const bg = imgKey ? (IMAGES[imgKey] || imgKey) : null;
   return (
-    <section className="page-head">
+    <section
+      className={`page-head ${bg ? 'page-head--has-bg' : ''}`}
+      style={bg ? { backgroundImage: `url(${bg})` } : {}}
+    >
       <div className="wrap">
         <p className="crumbs">
           <a href="#/" onClick={go('/')}>Home</a> / {crumb}

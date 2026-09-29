@@ -183,6 +183,7 @@ export function Achievements({ go }) {
     <>
       <PageHead
         go={go} crumb="Achievements" title="Achievements"
+        image="achievements-hero"
         lede="Key operational milestones, leadership strategies, and engineering excellence in construction contracting."
       />
 
