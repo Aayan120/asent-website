@@ -590,7 +590,7 @@ Allied construction material|Held in quantity|Local|Various`)],
 export const OFFICES = [
   ['Head office — Karachi', 'Building No. 7-C, Old Sunset Boulevard,\nPhase II, DHA, Karachi', '+92-21-35310364-66', '+922135310364'],
   ['Factory  — Karachi', 'Plot No. 388/1 Lasbella,\nGarden West, Karachi', '+92-21-34120978', '+922134120978'],
-  ['Regional office — Naya Nazimabad', 'Naya Nazimabad,\nKarachi', '', ''],
+  ['Regional office — Naya Nazimabad', 'Rahat Residency II, 2nd Floor,\nBlock D, Naya Nazimabad, Gadap Town,\nKarachi, Pakistan', '', ''],
 ];
 
 export const TENDER_DOCS = [
